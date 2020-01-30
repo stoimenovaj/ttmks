@@ -1,7 +1,7 @@
 package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Grad;
-import com.bazi.ttmk.repository.GradoviRepository;
+import com.bazi.ttmk.service.GradoviService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,12 +11,14 @@ import java.util.List;
 @RestController
 @RequestMapping(path="/gradovi")
 public class GradoviController {
-    private final GradoviRepository gradoviRepository;
+    private final GradoviService gradoviService;
 
-    public GradoviController(GradoviRepository gradoviRepository) {
-        this.gradoviRepository = gradoviRepository;
+    public GradoviController(GradoviService gradoviService) {
+        this.gradoviService = gradoviService;
     }
 
     @GetMapping
-    public List<Grad> findAll(){ return this.gradoviRepository.findAll(); }
+    public List<Grad> findAll() {
+        return this.gradoviService.getAllGradovi();
+    }
 }

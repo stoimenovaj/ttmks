@@ -1,7 +1,7 @@
 package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Faza;
-import com.bazi.ttmk.repository.FaziRepository;
+import com.bazi.ttmk.service.FaziService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,14 +11,14 @@ import java.util.List;
 @RestController
 @RequestMapping(path="/fazi")
 public class FaziController {
-    private final FaziRepository faziRepository;
+    private final FaziService faziService;
 
-    public FaziController(FaziRepository faziRepository) {
-        this.faziRepository = faziRepository;
+    public FaziController(FaziService faziService) {
+        this.faziService = faziService;
     }
 
     @GetMapping
-    public List<Faza> findAll(){
-        return this.faziRepository.findAll();
+    public List<Faza> getAllFazi() {
+        return this.faziService.getAllFazi();
     }
 }

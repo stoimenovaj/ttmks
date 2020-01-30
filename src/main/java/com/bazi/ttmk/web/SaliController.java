@@ -1,7 +1,7 @@
 package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Sala;
-import com.bazi.ttmk.repository.SaliRepository;
+import com.bazi.ttmk.service.SaliService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,12 +11,14 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/sali")
 public class SaliController {
-    private final SaliRepository saliRepository;
+    private final SaliService saliService;
 
-    public SaliController(SaliRepository saliRepository) {
-        this.saliRepository = saliRepository;
+    public SaliController(SaliService saliService) {
+        this.saliService = saliService;
     }
 
     @GetMapping
-    public List<Sala> getAllSali() { return this.saliRepository.findAll(); }
+    public List<Sala> getAllSali() {
+        return this.saliService.getAllSali();
+    }
 }

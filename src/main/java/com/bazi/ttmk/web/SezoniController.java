@@ -1,8 +1,7 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Sala;
-import com.bazi.ttmk.repository.SaliRepository;
-import com.bazi.ttmk.repository.SezoniRepository;
+import com.bazi.ttmk.model.Sezona;
+import com.bazi.ttmk.service.SezoniService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,17 +12,15 @@ import java.util.List;
 @RequestMapping(path = "/sezoni")
 public class SezoniController {
 
-    private final SezoniRepository sezoni;
-    private final SaliRepository sali;
+    private final SezoniService sezoniService;
 
-    public SezoniController(SezoniRepository sezoni, SaliRepository sali) {
-        this.sezoni = sezoni;
-        this.sali = sali;
+    public SezoniController(SezoniService sezoniService) {
+        this.sezoniService = sezoniService;
     }
 
     @GetMapping
-    public List<Sala> getSezoni(){
-        return this.sali.findAll();
+    public List<Sezona> getSezoni() {
+        return this.sezoniService.getAllSezoni();
     }
 
 }

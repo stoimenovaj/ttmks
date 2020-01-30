@@ -10,12 +10,13 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(
         name = "registrirani_lica",
         uniqueConstraints = @UniqueConstraint(columnNames = {"ime_lice", "prezime_lice", "godini_lice"}),
         schema = "project"
 )
-public class RegistriranoLice implements java.io.Serializable {
+public class RegistriranoLice  implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

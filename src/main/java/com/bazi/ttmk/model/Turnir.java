@@ -52,6 +52,7 @@ public class Turnir implements java.io.Serializable {
     private Kategorija kategorija;
 
     @OneToMany(mappedBy = "turnir")
+    @JsonIgnore
     private List<Faza> fazi;
 
 }

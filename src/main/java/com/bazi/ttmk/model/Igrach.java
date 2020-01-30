@@ -3,22 +3,24 @@ package com.bazi.ttmk.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import javax.persistence.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "igrachi", schema = "project")
-public class Igrach implements java.io.Serializable {
+public class Igrach extends RegistriranoLice implements java.io.Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_lice_igrach", unique = true, nullable = false)
-    private int idLiceIgrach;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "id_lice_igrach", unique = true, nullable = false)
+//    private int idLiceIgrach;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "posleden_lekarski_pregled", nullable = false, length = 13)

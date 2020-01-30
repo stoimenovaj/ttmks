@@ -2,6 +2,7 @@ package com.bazi.ttmk.model;
 // Generated Jan 29, 2020, 7:04:22 PM by Hibernate Tools 4.3.5.Final
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,4 +36,9 @@ public class Liga implements java.io.Serializable {
 
     @OneToMany(mappedBy = "liga")
     private List<Natprevar> natprevari;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_sezona", updatable = false, insertable = false, nullable = false)
+    @JsonIgnore
+    private Sezona sezona;
 }

@@ -1,5 +1,6 @@
 package com.bazi.ttmk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,11 +26,10 @@ public class Mech implements java.io.Serializable {
     private int idMech;
 
     @Column(name = "dobieni_setovi_domakjin")
-    private int dobieniSetoviDomakjin;
+    private Integer dobieniSetoviDomakjin;
 
     @Column(name = "dobieni_setovi_gostin")
-    private int dobieniSetoviGostin;
-
+    private Integer dobieniSetoviGostin;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_lice_igrach_domakjin", nullable = false)
@@ -49,10 +49,12 @@ public class Mech implements java.io.Serializable {
             @JoinColumn(name = "faza_id_kategorija", referencedColumnName = "id_kategorija", insertable = false, updatable = false),
             @JoinColumn(name = "faza_reden_broj", referencedColumnName = "reden_broj", insertable = false, updatable = false)
     })
+    @JsonIgnore
     private Faza faza;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_natprevar")
+    @JsonIgnore
     private Natprevar natprevar;
 
     @OneToMany

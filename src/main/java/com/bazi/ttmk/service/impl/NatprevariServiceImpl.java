@@ -19,4 +19,9 @@ public class NatprevariServiceImpl implements NatprevariService {
     public List<Natprevar> getAllNatprevari() {
         return this.natprevariRepository.findAll();
     }
+
+    @Override
+    public int brojDobieni(int sezonaId, int ligaId, int timId) {
+        return natprevariRepository.brojDomakjinOsvoeniMechevi(sezonaId, ligaId, timId);
+    }
 }

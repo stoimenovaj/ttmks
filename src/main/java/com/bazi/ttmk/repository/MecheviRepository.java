@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MecheviRepository extends JpaRepository<Mech, Integer> {
 
+    // site natreavri kade tim e domakjin where domakin osvoeni mechevi >
+
 }

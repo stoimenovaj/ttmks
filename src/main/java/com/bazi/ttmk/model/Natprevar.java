@@ -33,10 +33,10 @@ public class Natprevar implements java.io.Serializable {
     private Integer kolo;
 
     @Column(name = "dobieni_mechevi_domakjin")
-    private int dobieniMecheviDomakjin;
+    private Integer dobieniMecheviDomakjin;
 
     @Column(name = "dobieni_mechevi_gostin")
-    private int dobieniMecheviGostin;
+    private Integer dobieniMecheviGostin;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tim_domakjin", nullable = false)

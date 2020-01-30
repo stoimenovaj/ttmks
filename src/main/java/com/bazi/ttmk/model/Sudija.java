@@ -1,9 +1,6 @@
 package com.bazi.ttmk.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString(callSuper = true)
 @Table(name = "sudii", schema = "project")
 public class Sudija extends RegistriranoLice implements java.io.Serializable {
 

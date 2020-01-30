@@ -7,4 +7,7 @@ import java.util.List;
 public interface NatprevariService {
 
     List<Natprevar> getAllNatprevari();
+
+    int brojDobieni(int sezonaId, int ligaId, int timId);
+
 }

@@ -1,5 +1,6 @@
 package com.bazi.ttmk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,9 +26,10 @@ public class Sezona implements java.io.Serializable {
     private String godina;
 
     @OneToMany(mappedBy = "sezona")
+    @JsonIgnore
     private List<Turnir> turniri;
 
-    @OneToMany
-    @JoinColumn(name = "sezona_id")
+    @OneToMany(mappedBy = "sezona")
+    @JsonIgnore
     private List<Liga> ligi;
 }

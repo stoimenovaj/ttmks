@@ -21,4 +21,9 @@ public class NatprevariController {
     public List<Natprevar> findAll() {
         return this.natprevariService.getAllNatprevari();
     }
+
+    @GetMapping(path = "/broj")
+    public int broj(int idSezona, int idLiga, int timId) {
+        return this.natprevariService.brojDobieni(idSezona, idLiga, timId);
+    }
 }

@@ -33,8 +33,6 @@ public class RegistriranoLice implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_grad", nullable = false)
-    private Gradovi gradRaganje;
+    private Grad gradRaganje;
 
 }
-
-

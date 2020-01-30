@@ -10,16 +10,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Embeddable
-public class TurnirId implements java.io.Serializable {
+public class LigaId implements java.io.Serializable {
 
-    @Column(name = "id_turnir", nullable = false)
+    @Column(name = "id_liga", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTurnir;
+    private int idLiga;
 
-    @Column(name = "id_kategorija", nullable = false)
-    private int idKategorija;
-
+    @Column(name = "id_sezona", nullable = false)
+    private int idSezona;
 }

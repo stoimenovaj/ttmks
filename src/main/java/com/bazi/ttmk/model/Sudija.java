@@ -22,5 +22,3 @@ public class Sudija implements java.io.Serializable {
     private String titula;
 
 }
-
-

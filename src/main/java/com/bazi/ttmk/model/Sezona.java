@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,6 +24,10 @@ public class Sezona implements java.io.Serializable {
     @Column(name = "godina", nullable = false, length = 9)
     private String godina;
 
+    @OneToMany(mappedBy = "sezona")
+    private List<Turnir> turniri;
+
+    @OneToMany
+    @JoinColumn(name = "sezona_id")
+    private List<Liga> ligi;
 }
-
-

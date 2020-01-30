@@ -29,5 +29,3 @@ public class Spagja implements java.io.Serializable {
     private int timPoeni;
 
 }
-
-

@@ -23,5 +23,3 @@ public class SpagjaId implements java.io.Serializable {
     private int idTim;
 
 }
-
-

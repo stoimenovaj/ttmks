@@ -1,6 +1,4 @@
 package com.bazi.ttmk.model;
-// Generated Jan 29, 2020, 7:04:22 PM by Hibernate Tools 4.3.5.Final
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,8 +27,6 @@ public class Sala implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_grad")
-    private Gradovi grad;
-
+    private Grad grad;
+    
 }
-
-

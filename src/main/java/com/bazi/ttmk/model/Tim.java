@@ -40,8 +40,9 @@ public class Tim implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_grad", nullable = false)
-    private Gradovi grad;
+    private Grad grad;
+
+    @OneToMany(mappedBy = "tim")
+    private List<Igrach> igrachi;
 
 }
-
-

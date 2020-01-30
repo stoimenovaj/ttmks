@@ -1,6 +1,6 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Fazi;
+import com.bazi.ttmk.model.Faza;
 import com.bazi.ttmk.repository.FaziRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +18,7 @@ public class FaziController {
     }
 
     @GetMapping
-    public List<Fazi> findAll(){
+    public List<Faza> findAll(){
         return this.faziRepository.findAll();
     }
 }

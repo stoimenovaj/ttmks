@@ -1,10 +1,13 @@
 package com.bazi.ttmk.model;
 
+import com.bazi.ttmk.web.FaziController;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 @Data
@@ -41,8 +44,14 @@ public class Turnir implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_sezona", nullable = false)
+    @JsonIgnore
     private Sezona sezona;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_kategorija", nullable = false)
+    private Kategorija kategorija;
+
+    @OneToMany(mappedBy = "turnir")
+    private List<Faza> fazi;
+
 }
-
-

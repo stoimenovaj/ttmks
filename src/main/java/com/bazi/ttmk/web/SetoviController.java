@@ -1,6 +1,6 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Setovi;
+import com.bazi.ttmk.model.Set;
 import com.bazi.ttmk.repository.SetoviRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +18,5 @@ public class SetoviController {
     }
 
     @GetMapping
-    public List<Setovi> findAll() { return this.setoviRepository.findAll(); }
+    public List<Set> findAll() { return this.setoviRepository.findAll(); }
 }

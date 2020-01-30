@@ -40,7 +40,7 @@ public class Mech implements java.io.Serializable {
     private Igrach gostinIgrach;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_lice_sudija")
+    @JoinColumn(name = "lice_id_sudija")
     private Sudija sudija;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -55,7 +55,8 @@ public class Mech implements java.io.Serializable {
     @JoinColumn(name = "id_natprevar")
     private Natprevar natprevar;
 
-    @OneToMany(mappedBy = "idSet", fetch = FetchType.EAGER)
+    @OneToMany
+    @JoinColumn(name = "id_mech")
     private List<Set> setovi;
 
 }

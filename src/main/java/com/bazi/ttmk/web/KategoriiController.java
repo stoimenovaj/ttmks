@@ -1,6 +1,6 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Kategorii;
+import com.bazi.ttmk.model.Kategorija;
 import com.bazi.ttmk.repository.KategoriiRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +18,5 @@ public class KategoriiController {
     }
 
     @GetMapping
-    public List<Kategorii> findAll() { return this.kategoriiRepository.findAll(); }
+    public List<Kategorija> findAll() { return this.kategoriiRepository.findAll(); }
 }

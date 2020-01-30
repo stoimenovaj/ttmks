@@ -48,7 +48,7 @@ public class Turnir implements java.io.Serializable {
     private Sezona sezona;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_kategorija", nullable = false)
+    @JoinColumn(name = "id_kategorija", nullable = false, insertable = false, updatable = false)
     private Kategorija kategorija;
 
     @OneToMany(mappedBy = "turnir")

@@ -1,5 +1,6 @@
 package com.bazi.ttmk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class Igrach implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tim")
+    @JsonIgnore
     private Tim tim;
 
     @ManyToOne(fetch = FetchType.EAGER)

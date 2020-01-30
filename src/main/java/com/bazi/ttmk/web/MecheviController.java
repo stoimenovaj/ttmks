@@ -1,6 +1,6 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Mechevi;
+import com.bazi.ttmk.model.Mech;
 import com.bazi.ttmk.repository.MecheviRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +18,5 @@ public class MecheviController {
     }
 
     @GetMapping
-    public List<Mechevi> findAll() { return this.mecheviRepository.findAll(); }
+    public List<Mech> findAll() { return this.mecheviRepository.findAll(); }
 }

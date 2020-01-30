@@ -1,5 +1,6 @@
 package com.bazi.ttmk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ public class Natprevar implements java.io.Serializable {
     private Date dataOdigran;
 
     @Column(name = "kolo")
-    private int kolo;
+    private Integer kolo;
 
     @Column(name = "dobieni_mechevi_domakjin")
     private int dobieniMecheviDomakjin;
@@ -54,6 +55,7 @@ public class Natprevar implements java.io.Serializable {
             @JoinColumn(name = "id_liga", referencedColumnName = "id_liga", insertable = false, updatable = false),
             @JoinColumn(name = "id_sezona", referencedColumnName = "id_sezona", insertable = false, updatable = false)
     })
+    @JsonIgnore
     private Liga liga;
 
     @OneToMany(mappedBy = "natprevar", fetch = FetchType.EAGER)

@@ -1,6 +1,6 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Gradovi;
+import com.bazi.ttmk.model.Grad;
 import com.bazi.ttmk.repository.GradoviRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +18,5 @@ public class GradoviController {
     }
 
     @GetMapping
-    public List<Gradovi> findAll(){ return this.gradoviRepository.findAll(); }
+    public List<Grad> findAll(){ return this.gradoviRepository.findAll(); }
 }

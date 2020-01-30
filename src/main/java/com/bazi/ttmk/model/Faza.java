@@ -1,5 +1,6 @@
 package com.bazi.ttmk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,7 @@ public class Faza implements java.io.Serializable {
             @JoinColumn(name = "id_turnir", referencedColumnName = "id_turnir", insertable = false, updatable = false),
             @JoinColumn(name = "id_kategorija", referencedColumnName = "id_kategorija", insertable = false, updatable = false)
     })
+    @JsonIgnore
     private Turnir turnir;
 
     @OneToMany(mappedBy = "faza")

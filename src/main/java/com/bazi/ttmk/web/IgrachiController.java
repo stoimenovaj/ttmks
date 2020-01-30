@@ -1,6 +1,6 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Igrachi;
+import com.bazi.ttmk.model.Igrach;
 import com.bazi.ttmk.repository.IgrachiRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +18,5 @@ public class IgrachiController {
     }
 
     @GetMapping
-    public List<Igrachi> findAll(){ return this.igrachiRepository.findAll(); }
+    public List<Igrach> findAll(){ return this.igrachiRepository.findAll(); }
 }

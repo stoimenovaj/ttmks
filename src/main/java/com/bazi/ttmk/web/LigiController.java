@@ -1,6 +1,6 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Ligi;
+import com.bazi.ttmk.model.Liga;
 import com.bazi.ttmk.repository.LigiRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +18,5 @@ public class LigiController {
     }
 
     @GetMapping
-    public List<Ligi> findAll() { return this.ligiRepository.findAll(); }
+    public List<Liga> findAll() { return this.ligiRepository.findAll(); }
 }

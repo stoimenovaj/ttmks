@@ -1,6 +1,6 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Natprevari;
+import com.bazi.ttmk.model.Natprevar;
 import com.bazi.ttmk.repository.NatprevariRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +18,5 @@ public class NatprevariController {
     }
 
     @GetMapping
-    public List<Natprevari> findAll() { return this.natprevariRepository.findAll(); }
+    public List<Natprevar> findAll() { return this.natprevariRepository.findAll(); }
 }

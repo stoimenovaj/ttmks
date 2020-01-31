@@ -12,7 +12,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "igrachi", schema = "project")
-public class Igrach extends RegistriranoLice implements java.io.Serializable {
+public class Igrach implements java.io.Serializable {
+
+    @Id
+    @Column(name = "id_lice", nullable = false)
+    private int idLice;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "posleden_lekarski_pregled", nullable = false, length = 13)
@@ -29,5 +33,9 @@ public class Igrach extends RegistriranoLice implements java.io.Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_kategorija")
     private Kategorija kategorija;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_lice", insertable = false, updatable = false)
+    private RegistriranoLice lice;
 
 }

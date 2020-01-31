@@ -15,6 +15,7 @@ import java.util.List;
 public class Sezona implements java.io.Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_sezona", unique = true, nullable = false)
     private int idSezona;
 

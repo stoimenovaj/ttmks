@@ -2,14 +2,17 @@ package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Natprevar;
 import com.bazi.ttmk.service.NatprevariService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/natprevari")
+@RequestMapping(path = "/natprevari")
 public class NatprevariController {
     private final NatprevariService natprevariService;
 
@@ -26,4 +29,18 @@ public class NatprevariController {
     public int broj(int idSezona, int idLiga, int timId) {
         return this.natprevariService.brojDobieni(idSezona, idLiga, timId);
     }
+
+    @PostMapping
+    public Natprevar createNatprevar(Integer idSezona,
+                                     Integer idLiga,
+                                     Integer kolo,
+                                     Integer idSala,
+                                     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dataOdigran,
+                                     Integer idTimDomakjin,
+                                     Integer idTimGostinid,
+                                     Integer poeniDomakjin,
+                                     Integer poeniGostin) {
+        return this.natprevariService.createNatprevar(idSezona,idLiga, kolo, idSala, dataOdigran, idTimDomakjin, idTimGostinid, poeniDomakjin, poeniGostin);
+    }
+
 }

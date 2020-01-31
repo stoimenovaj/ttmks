@@ -7,4 +7,7 @@ import java.util.List;
 public interface SaliService {
 
     List<Sala> getAllSali();
+
+    Sala createSala(String imeSala, Integer idGrad);
+
 }

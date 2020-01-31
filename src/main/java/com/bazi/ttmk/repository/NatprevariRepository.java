@@ -39,6 +39,6 @@ public interface NatprevariRepository extends JpaRepository<Natprevar, Integer> 
             "and n.dobieni_mechevi_domakjin < n.dobieni_mechevi_gostin", nativeQuery = true)
     int pobedeniNatprevariGostin(int sezonaId, int ligaId, int timId);
 
-    List<Natprevar> findByLiga_Id_IdLigaAndLiga_Id_IdSezonaOrderByKoloAsc(int idLiga, int idSezona);
+    List<Natprevar> findByLigaIdLigaAndLigaIdSezonaOrderByKoloAsc(int idLiga, int idSezona);
 
 }

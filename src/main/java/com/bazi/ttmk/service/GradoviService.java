@@ -8,4 +8,5 @@ public interface GradoviService {
 
     List<Grad> getAllGradovi();
 
+    Grad createGrad(String imeGrad);
 }

@@ -1,5 +1,6 @@
 package com.bazi.ttmk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 @Table(
         name = "registrirani_lica",
         uniqueConstraints = @UniqueConstraint(columnNames = {"ime_lice", "prezime_lice", "godini_lice"}),
@@ -35,4 +36,11 @@ public class RegistriranoLice  implements java.io.Serializable {
     @JoinColumn(name = "id_grad", nullable = false)
     private Grad gradRaganje;
 
+    @OneToOne(mappedBy = "lice")
+    @JsonIgnore
+    private Igrach igrach;
+
+    @OneToOne(mappedBy = "lice")
+    @JsonIgnore
+    private Sudija sudija;
 }

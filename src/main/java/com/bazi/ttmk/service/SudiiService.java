@@ -7,4 +7,7 @@ import java.util.List;
 public interface SudiiService {
 
     List<Sudija> getAllSudii();
+
+    Sudija createSudija(Integer idLice, String titula);
+
 }

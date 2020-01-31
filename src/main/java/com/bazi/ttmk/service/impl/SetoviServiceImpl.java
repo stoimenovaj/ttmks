@@ -19,4 +19,13 @@ public class SetoviServiceImpl implements SetoviService {
     public List<Set> getAllSetovi() {
         return this.setoviRepository.findAll();
     }
+
+    @Override
+    public Set createSet(Integer idMech,Integer poeniDomakjin, Integer poeniGostin) {
+        Set set = new Set();
+        set.setIdMech(idMech);
+        set.setPoeniDomakjin(poeniDomakjin);
+        set.setPoeniGostin(poeniGostin);
+        return this.setoviRepository.save(set);
+    }
 }

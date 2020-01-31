@@ -7,4 +7,7 @@ import java.util.List;
 public interface SezoniService {
 
     List<Sezona> getAllSezoni();
+
+    Sezona createSezona(String godina, String pretsedatel);
+
 }

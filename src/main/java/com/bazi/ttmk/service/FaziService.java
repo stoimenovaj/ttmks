@@ -8,4 +8,6 @@ public interface FaziService {
 
     List<Faza> getAllFazi();
 
+    Faza createFaza(int idTurnir, int idKategorija, String opisFaza, int brojFaza);
+
 }

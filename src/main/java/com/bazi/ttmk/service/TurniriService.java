@@ -10,4 +10,5 @@ public interface TurniriService {
     List<Turnir> getAllTurniri();
 
     Turnir createTurnir(int idSezona, int idKategorija, String ime, Date data, int participacija, int idSala, int brIgrachi);
+
 }

@@ -19,4 +19,11 @@ public class KategoriiServiceImpl implements KategoriiService {
     public List<Kategorija> getAllKategorii() {
         return this.kategoriiRepository.findAll();
     }
+
+    @Override
+    public Kategorija createKategorija(String imeKategorija) {
+        Kategorija kategorija = new Kategorija();
+        kategorija.setImeKategorija(imeKategorija);
+        return this.kategoriiRepository.save(kategorija);
+    }
 }

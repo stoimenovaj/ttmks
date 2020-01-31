@@ -19,4 +19,11 @@ public class GradoviServiceImpl implements GradoviService {
     public List<Grad> getAllGradovi() {
         return this.gradoviRepository.findAll();
     }
+
+    @Override
+    public Grad createGrad(String imeGrad) {
+        Grad grad = new Grad();
+        grad.setImeGrad(imeGrad);
+        return this.gradoviRepository.save(grad);
+    }
 }

@@ -1,5 +1,6 @@
 package com.bazi.ttmk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,9 +11,17 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "sudii", schema = "project")
-public class Sudija extends RegistriranoLice implements java.io.Serializable {
+public class Sudija implements java.io.Serializable {
+
+    @Id
+    @Column(name = "id_lice", nullable = false)
+    private int idLice;
 
     @Column(name = "titula", nullable = false, length = 30)
     private String titula;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_lice", insertable = false, updatable = false)
+    private RegistriranoLice lice;
 
 }

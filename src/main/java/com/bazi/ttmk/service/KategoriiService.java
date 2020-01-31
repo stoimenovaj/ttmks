@@ -7,4 +7,7 @@ import java.util.List;
 public interface KategoriiService {
 
     List<Kategorija> getAllKategorii();
+
+    Kategorija createKategorija(String imeKategorija);
+
 }

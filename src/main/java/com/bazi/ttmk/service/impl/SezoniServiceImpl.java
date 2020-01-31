@@ -19,4 +19,12 @@ public class SezoniServiceImpl implements SezoniService {
     public List<Sezona> getAllSezoni() {
         return this.sezoniRepository.findAll();
     }
+
+    @Override
+    public Sezona createSezona(String godina, String pretsedatel) {
+        Sezona sezona = new Sezona();
+        sezona.setGodina(godina);
+        sezona.setPretsedatel(pretsedatel);
+        return this.sezoniRepository.save(sezona);
+    }
 }

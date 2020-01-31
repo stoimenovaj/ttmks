@@ -7,4 +7,7 @@ import java.util.List;
 public interface RegistriraniLicaService {
 
     List<RegistriranoLice> getAllRegistriraniLica();
+
+    RegistriranoLice createRegistriranoLice(String imeLice, String prezimeLice, int godiniLice, Integer idGrad);
+
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class LigiServiceImpl implements LigiService {
+
     private final LigiRepository ligiRepository;
 
     public LigiServiceImpl(LigiRepository ligiRepository) {
@@ -18,5 +19,13 @@ public class LigiServiceImpl implements LigiService {
     @Override
     public List<Liga> getAllLigi() {
         return this.ligiRepository.findAll();
+    }
+
+    @Override
+    public Liga createLiga(int idSezona, String imeLiga) {
+        Liga liga = new Liga();
+        liga.setIdSezona(idSezona);
+        liga.setImeLiga(imeLiga);
+        return this.ligiRepository.save(liga);
     }
 }

@@ -19,4 +19,14 @@ public class SpagjaServiceImpl implements SpagjaService {
     public List<Spagja> getAllSpagja() {
         return this.spagjaRepository.findAll();
     }
+
+    @Override
+    public Spagja createSpagja(Integer idSezona, Integer idLiga, Integer idTim, Integer timPoeni) {
+        Spagja spagja = new Spagja();
+        spagja.setIdSezona(idSezona);
+        spagja.setIdLiga(idLiga);
+        spagja.setIdTim(idTim);
+        spagja.setTimPoeni(timPoeni);
+        return this.spagjaRepository.save(spagja);
+    }
 }

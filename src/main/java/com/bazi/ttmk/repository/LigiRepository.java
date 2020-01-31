@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface LigiRepository extends JpaRepository<Liga, LigaId> {
 
-    List<Liga> findById_IdSezona(int idSezona);
+    List<Liga> findByIdSezona(int idSezona);
 
 }

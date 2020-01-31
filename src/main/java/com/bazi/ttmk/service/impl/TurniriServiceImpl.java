@@ -45,8 +45,8 @@ public class TurniriServiceImpl implements TurniriService {
         for(int i=1; i<=brFazi; i++){
             Faza f = new Faza();
 
-            f.setIdTurnir(t.getId().getIdTurnir());
-            f.setIdKategorija(t.getId().getIdKategorija());
+            f.setIdTurnir(t.getIdTurnir());
+            f.setIdKategorija(t.getIdKategorija());
 
             int tmp = i;
             DetaliFaza detaliFaza = Arrays.stream(DetaliFaza.values())
@@ -68,10 +68,7 @@ public class TurniriServiceImpl implements TurniriService {
     public Turnir createTurnir(int idSezona, int idKategorija, String ime, Date data, int participacija, int idSala, int brIgrachi) {
         Turnir t = new Turnir();
 
-        TurnirId id = new TurnirId();
-        id.setIdKategorija(idKategorija);
-        t.setId(id);
-
+        t.setIdKategorija(idKategorija);
         t.setSezona(this.sezoniRepository.findById(idSezona)
                 .orElseThrow(() -> new RuntimeException("No season with " + idSezona + " found")));
         t.setImeTurnir(ime);

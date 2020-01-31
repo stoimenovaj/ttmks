@@ -18,14 +18,6 @@ import java.util.List;
         schema = "project")
 public class Faza implements java.io.Serializable {
 
-//    @EmbeddedId
-//    @AttributeOverrides({
-//            @AttributeOverride(name = "redenBroj", column = @Column(name = "reden_broj", nullable = false)),
-//            @AttributeOverride(name = "idTurnir", column = @Column(name = "id_turnir", nullable = false)),
-//            @AttributeOverride(name = "idKategorija", column = @Column(name = "id_kategorija", nullable = false))
-//    })
-//    private FazaId id;
-
     @Id
     @Column(name = "reden_broj", nullable = false, columnDefinition="serial")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project.fazi_reden_broj_seq")

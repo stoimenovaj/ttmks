@@ -2,27 +2,25 @@ package com.bazi.ttmk.model;
 
 import lombok.*;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@IdClass(SetId.class)
 @Table(name = "setovi", schema = "project")
 public class Set implements java.io.Serializable {
 
-    @EmbeddedId
-    @AttributeOverrides({
-            @AttributeOverride(name = "redenBroj", column = @Column(name = "reden_broj", nullable = false)),
-            @AttributeOverride(name = "idMech", column = @Column(name = "id_mech", nullable = false))
-    })
-    private SetId id;
+    @Id
+    @Column(name = "reden_broj", nullable = false, columnDefinition = "serial")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project.setovi_reden_broj_seq")
+    private int redenBroj;
+
+    @Id
+    @Column(name = "id_mech", nullable = false)
+    private int idMech;
 
     @Column(name = "poeni_gostin", nullable = false)
     private int poeniGostin;

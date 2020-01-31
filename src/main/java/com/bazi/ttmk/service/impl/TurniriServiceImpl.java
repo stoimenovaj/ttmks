@@ -45,11 +45,6 @@ public class TurniriServiceImpl implements TurniriService {
         for(int i=1; i<=brFazi; i++){
             Faza f = new Faza();
 
-//            FazaId fId = new FazaId();
-//            fId.setIdTurnir(t.getId().getIdTurnir());
-//            fId.setIdKategorija(t.getId().getIdKategorija());
-//            f.setId(fId);
-
             f.setIdTurnir(t.getId().getIdTurnir());
             f.setIdKategorija(t.getId().getIdKategorija());
 

@@ -31,4 +31,5 @@ public class Sezona implements java.io.Serializable {
     @OneToMany(mappedBy = "sezona")
     @JsonIgnore
     private List<Liga> ligi;
+
 }

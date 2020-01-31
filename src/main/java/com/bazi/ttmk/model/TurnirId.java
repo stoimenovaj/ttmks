@@ -13,14 +13,10 @@ import javax.persistence.GenerationType;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Embeddable
 public class TurnirId implements java.io.Serializable {
 
-    @Column(name = "id_turnir", nullable = false, columnDefinition="serial")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project.turniri_id_turnir_seq")
     private int idTurnir;
 
-    @Column(name = "id_kategorija", nullable = false)
     private int idKategorija;
 
 }

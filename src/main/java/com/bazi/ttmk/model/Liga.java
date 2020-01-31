@@ -11,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@IdClass(LigaId.class)
 @Table(
         name = "ligi",
         uniqueConstraints = @UniqueConstraint(columnNames = {"id_sezona", "ime_liga"}),
@@ -18,12 +19,14 @@ import java.util.List;
 )
 public class Liga implements java.io.Serializable {
 
-    @EmbeddedId
-    @AttributeOverrides({
-            @AttributeOverride(name = "idLiga", column = @Column(name = "id_liga", nullable = false)),
-            @AttributeOverride(name = "idSezona", column = @Column(name = "id_sezona", nullable = false))
-    })
-    private LigaId id;
+    @Id
+    @Column(name = "id_liga", nullable = false, columnDefinition = "serial")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project.ligi_id_liga_seq")
+    private int idLiga;
+
+    @Id
+    @Column(name = "id_sezona", nullable = false)
+    private int idSezona;
 
     @Column(name = "ime_liga", nullable = false, length = 40)
     private String imeLiga;

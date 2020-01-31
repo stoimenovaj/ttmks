@@ -59,4 +59,5 @@ public class Natprevar implements java.io.Serializable {
 
     @OneToMany(mappedBy = "natprevar", fetch = FetchType.EAGER)
     private List<Mech> mechevi;
+
 }

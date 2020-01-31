@@ -13,6 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@IdClass(TurnirId.class)
 @Table(
         name = "turniri",
         uniqueConstraints = @UniqueConstraint(columnNames = {"ime_turnir", "id_sezona", "data_na_odrzhuvanje", "id_kategorija"}),
@@ -20,12 +21,14 @@ import javax.persistence.*;
 )
 public class Turnir implements java.io.Serializable {
 
-    @EmbeddedId
-    @AttributeOverrides({
-            @AttributeOverride(name = "idTurnir", column = @Column(name = "id_turnir", nullable = false)),
-            @AttributeOverride(name = "idKategorija", column = @Column(name = "id_kategorija", nullable = false))
-    })
-    private TurnirId id;
+    @Id
+    @Column(name = "id_turnir", nullable = false, columnDefinition="serial")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project.turniri_id_turnir_seq")
+    private int idTurnir;
+
+    @Id
+    @Column(name = "id_kategorija", nullable = false)
+    private int idKategorija;
 
     @Column(name = "ime_turnir", nullable = false, length = 50)
     private String imeTurnir;

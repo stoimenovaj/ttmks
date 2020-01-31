@@ -6,9 +6,8 @@ import lombok.*;
 import java.util.Date;
 import javax.persistence.*;
 
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface NatprevariRepository extends JpaRepository<Natprevar, Integer> {
 
     @Query(value = "select sum(dobieni_mechevi_domakjin) from project.natprevari as n " +

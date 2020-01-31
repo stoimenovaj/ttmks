@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+
 public interface TurniriRepository extends JpaRepository<Turnir, TurnirId> {
 
     List<Turnir> findBySezona_IdSezonaOrderByDataNaOdrzhuvanje(int idSezona);

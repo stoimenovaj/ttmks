@@ -36,7 +36,7 @@ public class NatprevariServiceImpl implements NatprevariService {
 
     @Override
     public int brojDobieni(int sezonaId, int ligaId, int timId) {
-        return natprevariRepository.brojDomakjinOsvoeniMechevi(sezonaId, ligaId, timId);
+        return natprevariRepository.brojDomakjinOsvoeniMechevi(sezonaId, ligaId, timId).orElse(0);
     }
 
     @Override

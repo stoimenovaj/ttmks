@@ -69,7 +69,6 @@ public class TurniriServiceImpl implements TurniriService {
         Turnir t = new Turnir();
 
         t.setIdKategorija(idKategorija);
-
         t.setSezona(this.sezoniRepository.findById(idSezona)
                 .orElseThrow(() -> new RuntimeException("No season with " + idSezona + " found")));
         t.setImeTurnir(ime);

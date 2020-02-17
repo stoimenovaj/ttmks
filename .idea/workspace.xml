@@ -1,101 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5236f80-6e58-4cf0-8074-b81668f57aa7" name="Default Changelist" comment="K">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/TtmkApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Faza.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/FazaId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Grad.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Igrach.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Kategorija.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Liga.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/LigaId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Mech.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Natprevar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/RegistriranoLice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Sala.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Set.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/SetId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Sezona.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Spagja.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/SpagjaId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Sudija.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Tim.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/Turnir.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/TurnirId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/dto/NatprevarInLiga.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/dto/TopListTeamStats.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/model/utils/DetaliFaza.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/FaziRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/GradoviRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/IgrachiRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/KategoriiRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/LigiRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/MecheviRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/NatprevariRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/RegistriraniLicaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/SaliRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/SetoviRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/SezoniRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/SpagjaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/SudiiRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/TimoviRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/repository/TurniriRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/FaziService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/GradoviService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/IgrachiService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/KategoriiService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/LigiService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/MecheviService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/NatprevariService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/RegistriraniLicaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/SaliService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/SetoviService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/SezoniService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/SpagjaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/SudiiService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/TimoviService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/TurniriService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/FaziServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/GradoviServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/IgrachiServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/KategoriiServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/LigiServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/MecheviServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/NatprevariServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/RegistriraniLicaServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/SaliServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/SetoviServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/SezoniServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/SpagjaServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/SudiiServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/TimoviServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/service/impl/TurniriServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/FaziController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/GradoviController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/IgrachiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/KategoriiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/LigiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/MecheviController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/NatprevariController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/RegistriraniLicaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/SaliController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/SetoviController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/SezoniController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/SpagjaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/SudiiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/TimoviController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bazi/ttmk/web/TurniriController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/bazi/ttmk/TtmkApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="e5236f80-6e58-4cf0-8074-b81668f57aa7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +79,7 @@
       <workItem from="1580335535523" duration="8969000" />
       <workItem from="1580397991243" duration="42699000" />
       <workItem from="1581890668740" duration="938000" />
+      <workItem from="1581969284684" duration="363000" />
     </task>
     <task id="LOCAL-00001" summary="Add repositories and controllers for models.">
       <created>1580343838806</created>
@@ -195,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580489460905</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add front-end app (problems resolved)">
+      <created>1581969340946</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1581969340946</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +132,8 @@
     <MESSAGE value="Add repositories and controllers for models." />
     <MESSAGE value="Added service layer." />
     <MESSAGE value="Post methods for sali, gradovi, ligi, sezoni, kategorii" />
-    <option name="LAST_COMMIT_MESSAGE" value="Post methods for sali, gradovi, ligi, sezoni, kategorii" />
+    <MESSAGE value="Add front-end app (problems resolved)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add front-end app (problems resolved)" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

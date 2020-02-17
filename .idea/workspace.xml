@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5236f80-6e58-4cf0-8074-b81668f57aa7" name="Default Changelist" comment="" />
+    <list default="true" id="e5236f80-6e58-4cf0-8074-b81668f57aa7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +83,7 @@
       <workItem from="1580335535523" duration="8969000" />
       <workItem from="1580397991243" duration="42699000" />
       <workItem from="1581890668740" duration="938000" />
-      <workItem from="1581969284684" duration="363000" />
+      <workItem from="1581969284684" duration="1072000" />
     </task>
     <task id="LOCAL-00001" summary="Add repositories and controllers for models.">
       <created>1580343838806</created>
@@ -109,7 +113,21 @@
       <option name="project" value="LOCAL" />
       <updated>1581969340946</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add front-end app (problems resolved 2)">
+      <created>1581969660409</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1581969660409</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add front-end app (problems resolved 2)">
+      <created>1581969741573</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1581969741573</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +151,8 @@
     <MESSAGE value="Added service layer." />
     <MESSAGE value="Post methods for sali, gradovi, ligi, sezoni, kategorii" />
     <MESSAGE value="Add front-end app (problems resolved)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add front-end app (problems resolved)" />
+    <MESSAGE value="Add front-end app (problems resolved 2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add front-end app (problems resolved 2)" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

@@ -41,6 +41,10 @@ public class Turnir implements java.io.Serializable {
     private int participacija;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_kategorija", nullable = false, insertable = false, updatable = false)
+    private Kategorija kategorija;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_sala", nullable = false)
     private Sala salaNaOdrzuvanje;
 
@@ -48,10 +52,6 @@ public class Turnir implements java.io.Serializable {
     @JoinColumn(name = "id_sezona", nullable = false)
     @JsonIgnore
     private Sezona sezona;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_kategorija", nullable = false, insertable = false, updatable = false)
-    private Kategorija kategorija;
 
     @OneToMany(mappedBy = "turnir")
     @JsonIgnore

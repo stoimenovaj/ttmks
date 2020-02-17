@@ -2,6 +2,7 @@ package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Liga;
 import com.bazi.ttmk.model.Sezona;
+import com.bazi.ttmk.model.Turnir;
 import com.bazi.ttmk.service.SezoniService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +36,11 @@ public class SezoniController {
     @GetMapping(path = "/{idSezona}/ligi")
     public List<Liga> findAllLigiInSezona(@PathVariable int idSezona){
         return this.sezoniService.getAllLigiInSezona(idSezona);
+    }
+
+    @GetMapping(path = "/{idSezona}/turniri")
+    public List<Turnir> findAllTurniriInSezona(@PathVariable int idSezona){
+        return this.sezoniService.getAllTurniriInSezona(idSezona);
     }
 
 }

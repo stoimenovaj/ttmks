@@ -102,7 +102,8 @@ public class LigiServiceImpl implements LigiService {
                                             nat.getDobieniMecheviGostin()
                                     );
                                 })
-                                .collect(Collectors.toList())))
+                                .collect(Collectors.toList())
+                ))
                 .collect(Collectors.toList());
     }
 

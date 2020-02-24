@@ -2,6 +2,7 @@ package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Grad;
 import com.bazi.ttmk.service.GradoviService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class GradoviController {
     }
 
     @PostMapping
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public Grad createGrad(String imeGrad){
         return this.gradoviService.createGrad(imeGrad);
     }

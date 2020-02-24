@@ -4,6 +4,7 @@ import com.bazi.ttmk.model.Liga;
 import com.bazi.ttmk.model.Sezona;
 import com.bazi.ttmk.model.Turnir;
 import com.bazi.ttmk.service.SezoniService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,7 @@ public class SezoniController {
     }
 
     @PostMapping
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public Sezona createSezona(String godina
             , String pretsedatel) {
         return this.sezoniService.createSezona(godina, pretsedatel);

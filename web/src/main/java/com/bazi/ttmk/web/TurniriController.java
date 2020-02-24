@@ -3,6 +3,7 @@ package com.bazi.ttmk.web;
 import com.bazi.ttmk.model.Turnir;
 import com.bazi.ttmk.service.TurniriService;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ public class TurniriController {
 
 
     @PostMapping
+    //@PreAuthorize("hasRole('ROLE_MANAGER')")
     public Turnir createTurnir(int idSezona,
                                int idKategorija,
                                String ime,

@@ -5,6 +5,7 @@ import com.bazi.ttmk.model.Natprevar;
 import com.bazi.ttmk.model.dto.NatprevarInLiga;
 import com.bazi.ttmk.model.dto.TopListTeamStats;
 import com.bazi.ttmk.service.LigiService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ public class LigiController {
     }
 
     @PostMapping
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public Liga createLiga(int idSezona,
                            String imeLiga){
         return this.ligiService.createLiga(idSezona,imeLiga);

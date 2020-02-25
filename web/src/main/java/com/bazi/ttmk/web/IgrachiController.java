@@ -3,6 +3,7 @@ package com.bazi.ttmk.web;
 import com.bazi.ttmk.model.Igrach;
 import com.bazi.ttmk.service.IgrachiService;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,7 @@ public class IgrachiController {
     }
 
     @PostMapping
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public Igrach createIgrach(Integer idLice,
                                String opisNaReket,
                                @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date posledenLekarskiPregled,

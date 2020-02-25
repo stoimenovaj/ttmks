@@ -2,6 +2,7 @@ package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Tim;
 import com.bazi.ttmk.service.TimoviService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class TimoviController {
     }
 
     @PostMapping
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public Tim creatTim(Integer idGrad,
                         String imeTim,
                         Integer godinaOsnovan,

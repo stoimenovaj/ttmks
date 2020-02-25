@@ -2,6 +2,7 @@ package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Sudija;
 import com.bazi.ttmk.service.SudiiService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class SudiiController {
     }
 
     @PostMapping
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public Sudija createSudija(Integer idLice,
                                String titula) {
         return this.sudiiService.createSudija(idLice, titula);

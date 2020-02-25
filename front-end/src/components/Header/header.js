@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import mkflag from '../../images/mkflag.png'
 
 const Header = () => {
@@ -19,9 +20,9 @@ const Header = () => {
 
             <div className="navbar-collapse collapse" id="navbarSupportedContent">
                 <ul className="nav navbar-nav mr-auto">
-                    <li className="nav-item"><a href="#" className="nav-link">Турнири</a></li>
-                    <li className="nav-item"><a href="#" className="nav-link">Натпревари</a></li>
-                    <li className="nav-item"><a href="#" className="nav-link">Регистрирани лица</a></li>
+                    <li className="nav-item"><Link className="nav-link" to={"/turniri"}>Турнири</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to={"/natprevari"}>Натпревари</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to={"/registriraniLica"}>Регистрирани лица</Link></li>
                 </ul>
             </div>
 

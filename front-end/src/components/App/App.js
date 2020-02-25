@@ -1,23 +1,38 @@
 import React from 'react';
 import './App.css';
 import Header from "../Header/header";
-import Sezona from "../Sezona/sezona";
 import Login from "../Login/login"
 import bg1 from "../../images/bg.jpg"
-import bg2 from "../../images/bg1.jpg"
+import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom'
 
 function App() {
 
-  let code = <script>{nesto()}</script>;
+  const routing = (
+      <Router>
+        <Header />
+
+        <main role="main" className="mt-3">
+
+          <div className="container">
+            <Route path={"/turniri"}>
+            </Route>
+            <Route path={"/natprevari"}>
+            </Route>
+            <Route path={"/registriraniLica"}>
+            </Route>
+            <Redirect to={"/turniri"}/>
+          </div>
+        </main>
+      </Router>
+  )
+
+
+
 
   return (
     <div className="App " style={{background: "url("+ bg1 +")", width: "100%",
       height: "100vh",backgroundPosition: "center center", backgroundSize: "cover", backgroundAttachment: "fixed"}}>
-      <Header />
-
-      <Login />
-
-
+      {routing}
     </div>
   );
 }

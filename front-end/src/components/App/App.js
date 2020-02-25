@@ -3,23 +3,20 @@ import './App.css';
 import Header from "../Header/header";
 import Sezona from "../Sezona/sezona";
 import Login from "../Login/login"
+import bg1 from "../../images/bg.jpg"
+import bg2 from "../../images/bg1.jpg"
 
 function App() {
 
   let code = <script>{nesto()}</script>;
 
   return (
-    <div className="App">
-    <Header />
-    <Login/>
+    <div className="App " style={{background: "url("+ bg1 +")", width: "100%",
+      height: "100vh",backgroundPosition: "center center", backgroundSize: "cover", backgroundAttachment: "fixed"}}>
+      <Header />
 
-    <Sezona/>
-      <div style={{marginTop: "5%"}} className="container-fluid">
-        <div className="row ">
-          <div className="col-sm-12 col-md-3 "/>
-          {code}
-        </div>
-      </div>
+      <Login />
+
 
     </div>
   );

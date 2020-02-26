@@ -4,54 +4,96 @@ import Header from "../Header/header";
 import Login from "../Login/login"
 import bg1 from "../../images/bg.jpg"
 import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom'
+import Auth from "../../service/authService";
+import {ACCESS_TOKEN} from "../../constants";
 
-function App() {
+class App extends React.Component {
 
-  const routing = (
-      <Router>
-        <Header />
+    constructor(props) {
+        super(props);
 
-        <main role="main" className="mt-3">
+        this.state = {
+            currentUser: null,
+            isAuthenticated: false,
+            isLoading: false
+        }
 
-          <div className="container">
-            <Route path={"/turniri"}>
-            </Route>
-            <Route path={"/natprevari"}>
-            </Route>
-            <Route path={"/registriraniLica"}>
-            </Route>
-            <Redirect to={"/turniri"}/>
-          </div>
-        </main>
-      </Router>
-  )
+    }
 
+    loadCurrentUser = () => {
+        this.setState({
+            isLoading: true
+        });
+        Auth.getCurrentUser()
+            .then(response => {
+                this.setState({
+                    currentUser: response,
+                    isAuthenticated: true,
+                    isLoading: false
+                });
+                console.log("Success!");
+            }).catch(error => {
+            this.setState({
+                isLoading: false
+            });
+        });
+    };
 
+    handleLogin = (request) => {
+        return Auth.login(request)
+            .then((response) => {
+                localStorage.setItem(ACCESS_TOKEN, response.data.accessToken);
+                console.log(localStorage.getItem(ACCESS_TOKEN));
+                this.loadCurrentUser();
+            });
+    };
 
+    render() {
 
-  return (
-    <div className="App " style={{background: "url("+ bg1 +")", width: "100%",
-      height: "100vh",backgroundPosition: "center center", backgroundSize: "cover", backgroundAttachment: "fixed"}}>
-      {routing}
-    </div>
-  );
-}
+        const routing = (
+            <Router>
+                <Header currentUser={this.state.currentUser}/>
+                <main role="main" className="mt-3">
+                    <div className="container">
+                        <Route path={"/turniri"}>
+                            <h1>Turniri</h1>
+                        </Route>
+                        <Route path={"/natprevari"}>
+                            <h1>Natprevari</h1>
+                        </Route>
+                        <Route path={"/registriraniLica"}>
+                            <h1>Registrirani lica</h1>
+                        </Route>
+                        <Route path={"/register"}>
+                            <h1>Register</h1>
+                        </Route>
+                        <Route path={"/login"}>
+                            <Login onLogin={this.handleLogin}/>
+                        </Route>
+                        <Route path={"/logout"}>
+                            <h1>Logout</h1>
+                        </Route>
+                        <Redirect to={"/turniri"}/>
+                    </div>
+                </main>
+            </Router>
+        );
 
-function nesto() {
-  var acc = document.getElementsByClassName("accordion");
-  var i;
+        return (
+            <div className="App " style={{
+                background: "url(" + bg1 + ")",
+                width: "100%",
+                height: "100vh",
+                backgroundPosition: "center center",
+                backgroundSize: "cover",
+                backgroundAttachment: "fixed"
+            }}>
+                {routing}
+            </div>
+        );
 
-  for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
-      } else {
-        panel.style.display = "block";
-      }
-    });
-  }
+    }
+
 }
 
 export default App;

@@ -1,5 +1,6 @@
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/';
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080';
 export const ACCESS_TOKEN = 'accessToken';
+export const AUTHORIZATION_HEADER = 'Authorization';
 
 export const NAME_MIN_LENGTH = 4;
 export const NAME_MAX_LENGTH = 40;
@@ -11,3 +12,6 @@ export const EMAIL_MAX_LENGTH = 40;
 
 export const PASSWORD_MIN_LENGTH = 6;
 export const PASSWORD_MAX_LENGTH = 20;
+
+export const ROLE_MANAGER = 'ROLE_MANAGER';
+export const ROLE_ADMIN = 'ROLE_ADMIN';

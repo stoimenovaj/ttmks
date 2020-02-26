@@ -1,8 +1,10 @@
 package com.bazi.ttmk.web;
 
+import com.bazi.ttmk.model.RoleName;
 import com.bazi.ttmk.model.User;
 import com.bazi.ttmk.model.dto.UserProfile;
 import com.bazi.ttmk.model.dto.UserSummary;
+import com.bazi.ttmk.model.exception.BadRequestException;
 import com.bazi.ttmk.model.exception.ResourceNotFoundException;
 import com.bazi.ttmk.repository.UserRepository;
 import com.bazi.ttmk.security.CurrentUser;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UsersController {
 
     private UserRepository userRepository;
@@ -25,10 +28,17 @@ public class UsersController {
 
     private static final Logger logger = LoggerFactory.getLogger(UsersController.class);
 
-    @GetMapping("/user/me")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')")
+    @GetMapping("/me")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public UserSummary getCurrentUser(@CurrentUser UserPrincipal currentUser) {
-        return new UserSummary(currentUser.getId(), currentUser.getUsername(), currentUser.getName());
+        RoleName role = this.userRepository.findById(currentUser.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("user", "id", currentUser.getId()))
+                .getRoles()
+                .stream()
+                .findFirst()
+                .orElseThrow(() -> new BadRequestException("No role for user"))
+                .getName();
+        return new UserSummary(currentUser.getId(), currentUser.getUsername(), currentUser.getName(), role.name());
     }
 
     @GetMapping("/users/{username}")

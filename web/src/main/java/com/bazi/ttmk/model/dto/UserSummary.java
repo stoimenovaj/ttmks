@@ -15,4 +15,6 @@ public class UserSummary {
 
     private String name;
 
+    private String role;
+
 }

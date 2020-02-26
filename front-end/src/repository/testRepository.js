@@ -1,5 +1,5 @@
 function getData() {
-    let array = []
+    let array = [];
 
     let obj1 = {
         name: "Сеозна 2017/2018",

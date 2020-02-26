@@ -6,6 +6,7 @@ import bg1 from "../../images/bg.jpg"
 import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom'
 import Auth from "../../service/authService";
 import {ACCESS_TOKEN} from "../../constants";
+import Turniri from "../Turniri/turniri";
 
 class App extends React.Component {
 
@@ -54,9 +55,9 @@ class App extends React.Component {
             <Router>
                 <Header currentUser={this.state.currentUser}/>
                 <main role="main" className="mt-3">
-                    <div className="container">
+                    <div className="container-fluid">
                         <Route path={"/turniri"}>
-                            <h1>Turniri</h1>
+                            <Turniri />
                         </Route>
                         <Route path={"/natprevari"}>
                             <h1>Natprevari</h1>

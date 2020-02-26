@@ -29,7 +29,7 @@ public class UsersController {
     private static final Logger logger = LoggerFactory.getLogger(UsersController.class);
 
     @GetMapping("/me")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')")
     public UserSummary getCurrentUser(@CurrentUser UserPrincipal currentUser) {
         RoleName role = this.userRepository.findById(currentUser.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("user", "id", currentUser.getId()))

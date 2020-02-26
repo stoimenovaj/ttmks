@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom'
 import Auth from "../../service/authService";
 import {ACCESS_TOKEN} from "../../constants";
 import Turniri from "../Turniri/turniri";
+import {withRouter} from "react-router";
 
 class App extends React.Component {
 
@@ -28,11 +29,10 @@ class App extends React.Component {
         Auth.getCurrentUser()
             .then(response => {
                 this.setState({
-                    currentUser: response,
+                    currentUser: response.data,
                     isAuthenticated: true,
                     isLoading: false
                 });
-                console.log("Success!");
             }).catch(error => {
             this.setState({
                 isLoading: false
@@ -41,39 +41,48 @@ class App extends React.Component {
     };
 
     handleLogin = (request) => {
-        return Auth.login(request)
-            .then((response) => {
-                localStorage.setItem(ACCESS_TOKEN, response.data.accessToken);
-                console.log(localStorage.getItem(ACCESS_TOKEN));
-                this.loadCurrentUser();
-            });
+        return Auth.login(request);
     };
+
+    handleLogout = (redirectTo="/turniri") => {
+        localStorage.removeItem(ACCESS_TOKEN);
+
+        this.setState({
+            currentUser: null,
+            isAuthenticated: false
+        });
+
+    };
+
+    componentDidMount() {
+        this.loadCurrentUser();
+    }
 
     render() {
 
         const routing = (
             <Router>
-                <Header currentUser={this.state.currentUser}/>
+                <Header currentUser={this.state.currentUser} logout={this.handleLogout}  {...this.props}/>
                 <main role="main" className="mt-3">
                     <div className="container-fluid">
-                        <Route path={"/turniri"}>
+                        <Route path={"/turniri"} exact>
                             <Turniri />
                         </Route>
-                        <Route path={"/natprevari"}>
+                        <Route path={"/natprevari"} exact>
                             <h1>Natprevari</h1>
                         </Route>
-                        <Route path={"/registriraniLica"}>
+                        <Route path={"/registriraniLica"} exact>
                             <h1>Registrirani lica</h1>
                         </Route>
-                        <Route path={"/register"}>
+                        <Route path={"/register"} exact>
                             <h1>Register</h1>
                         </Route>
-                        <Route path={"/login"}>
-                            <Login onLogin={this.handleLogin}/>
+                        <Route path={"/login"} exact>
+                            <Login onLogin={this.handleLogin} getUser={this.loadCurrentUser} {...this.props}/>
                         </Route>
-                        <Route path={"/logout"}>
-                            <h1>Logout</h1>
-                        </Route>
+                        {/*<Route path={"/logout"}>*/}
+                        {/*    <h1>Logout</h1>*/}
+                        {/*</Route>*/}
                         <Redirect to={"/turniri"}/>
                     </div>
                 </main>
@@ -97,4 +106,4 @@ class App extends React.Component {
 
 }
 
-export default App;
+export default withRouter(App);

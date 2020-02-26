@@ -19,7 +19,7 @@ const Login = (props) => {
     };
 
     return (
-        <div>
+        <div >
             <div className="col-sm-4 ml-auto mr-auto border rounded p-5 mt-5 bg-dark text-primary" style={{opacity: "0.9"}}>
                 <label htmlFor="address">Email:</label>
                 <input id="address" className="form-control text-center" autoFocus type="text" placeholder="example@example.com" />
@@ -32,7 +32,7 @@ const Login = (props) => {
                 </div>
                 <br />
                 <div className="col-sm-8 ml-auto mr-auto">
-                    <button onClick={validate} className="btn btn-primary btn-block">Login</button>
+                    <button onClick={validate} className="btn btn-primary btn-block" type="submit">Login</button>
                 </div>
             </div>
         </div>

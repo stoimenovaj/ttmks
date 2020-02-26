@@ -35,7 +35,8 @@ const Sezoni = (props) => {
     let sezoniHtml;
     if(sezoni){
         sezoniHtml = sezoni.map((sez,index) => {
-            let btn = <button className="btn btn-light btn-block mb-3" >{sez.sezona.godina}</button>;
+            if(sez.turniri.length <=0) return <span />;
+            let btn = <button className="btn btn-light btn-block" >{sez.sezona.godina}</button>;
             let ind = index;
             let itemsHtml = sez.turniri.map((turnir,index) => {
                 let radio;
@@ -60,9 +61,8 @@ const Sezoni = (props) => {
 
 
     return(
-        <div className="col-sm-3 bg-dark text-primary text-left pl-5 pt-4"
+        <div className="col-sm-3 bg-dark text-primary text-left pt-5 pb-5"
              style={{ borderRight: "1px black solid",
-                 minHeight: "100%",
                  maxHeight: "93vh",
                  overflow: "auto",
                  opacity: ".9"}}>

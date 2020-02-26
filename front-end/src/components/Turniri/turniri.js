@@ -38,7 +38,7 @@ class Turniri extends React.Component {
 
     render() {
         return (
-            <div className="row" style={{minHeight : "92vh", height: "100%", marginTop: "-16px"}}>
+            <div className="row" style={{height: "100%", marginTop: "-16px"}}>
                 <Sezoni sezoniTurniri={this.state.sezoniTurniri}  />
                 <Turnir />
             </div>

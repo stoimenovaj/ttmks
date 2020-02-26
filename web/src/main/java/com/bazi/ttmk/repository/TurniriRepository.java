@@ -12,6 +12,4 @@ public interface TurniriRepository extends JpaRepository<Turnir, TurnirId> {
 
     List<Turnir> findBySezona_IdSezonaOrderByDataNaOdrzhuvanje(int idSezona);
 
-
-
 }

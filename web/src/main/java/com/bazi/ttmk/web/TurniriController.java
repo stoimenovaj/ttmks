@@ -4,10 +4,7 @@ import com.bazi.ttmk.model.Turnir;
 import com.bazi.ttmk.service.TurniriService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -24,6 +21,12 @@ public class TurniriController {
     @GetMapping
     public List<Turnir> findAll() {
         return this.turniriService.getAllTurniri();
+    }
+
+    @GetMapping(path = "/{idTurnir}/{idKategorija}")
+    public Turnir findTurnir(@PathVariable Integer idTurnir,
+                             @PathVariable Integer idKategorija){
+        return this.turniriService.findTurnir(idTurnir, idKategorija).orElse(null);
     }
 
 

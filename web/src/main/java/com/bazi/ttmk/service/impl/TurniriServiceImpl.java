@@ -1,7 +1,6 @@
 package com.bazi.ttmk.service.impl;
 
 import com.bazi.ttmk.model.Faza;
-import com.bazi.ttmk.model.FazaId;
 import com.bazi.ttmk.model.Turnir;
 import com.bazi.ttmk.model.TurnirId;
 import com.bazi.ttmk.model.utils.DetaliFaza;
@@ -9,10 +8,7 @@ import com.bazi.ttmk.repository.*;
 import com.bazi.ttmk.service.TurniriService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class TurniriServiceImpl implements TurniriService {
@@ -86,5 +82,10 @@ public class TurniriServiceImpl implements TurniriService {
         t.setFazi(fazi);
 
         return this.turniriRepository.save(t);
+    }
+
+    @Override
+    public Optional<Turnir> findTurnir(Integer idTurnir, Integer idKategorija) {
+        return this.turniriRepository.findById(new TurnirId(idTurnir, idKategorija));
     }
 }

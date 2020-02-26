@@ -4,6 +4,7 @@ import com.bazi.ttmk.model.Turnir;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface TurniriService {
 
@@ -11,4 +12,5 @@ public interface TurniriService {
 
     Turnir createTurnir(int idSezona, int idKategorija, String ime, Date data, int participacija, int idSala, int brIgrachi);
 
+    Optional<Turnir> findTurnir(Integer idTurnir, Integer idKategorija);
 }

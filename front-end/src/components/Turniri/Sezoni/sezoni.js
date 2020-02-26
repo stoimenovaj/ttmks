@@ -23,25 +23,24 @@ function CustomToggle({ children, eventKey }) {
 const Sezoni = (props) => {
 
     const showTurniri = (e) =>{
-        let idTurnir = e.idturnir;
-        let idSezona = e.idsezona;
-        // props.prikazhiTurnir(idTurnir, idSezona);
+        console.log(e.target);
+        // let idTurnir = e.target.idturnir;
+        let idTurnir = e.target.attributes.getNamedItem('idturnir').value;
+        let idKategorija = e.target.attributes.getNamedItem('idkategorija').value;
+            //= e.target.idkategorija;
+        props.prikazhiTurnir(idTurnir, idKategorija);
     };
-
-
-
 
     let sezoni = props.sezoniTurniri;
     let sezoniHtml;
     if(sezoni){
         sezoniHtml = sezoni.map((sez,index) => {
             if(sez.turniri.length <=0) return <span />;
-            let btn = <button className="btn btn-light btn-block" >{sez.sezona.godina}</button>;
             let ind = index;
             let itemsHtml = sez.turniri.map((turnir,index) => {
                 let radio;
-                radio =  <input onClick={showTurniri} idsezona={sez.sezona.idSezona} idturnir={turnir.idTurnir} id={ind + "" + index} type="radio" name="item" />;
-                let label =  <label onClick={showTurniri} htmlFor={ind + "" + index}>{turnir.imeTurnir} - {turnir.dataNaOdrzhuvanje}</label>;
+                radio =  <input onClick={showTurniri} idkategorija={turnir.idKategorija} idturnir={turnir.idTurnir} id={ind + "" + index} type="radio" name="item" />;
+                let label =  <label htmlFor={ind + "" + index}>{turnir.imeTurnir} - {turnir.dataNaOdrzhuvanje}</label>;
                 return <div key={index}>{radio}{label}</div>;
             });
 
@@ -66,7 +65,7 @@ const Sezoni = (props) => {
                  maxHeight: "93vh",
                  overflow: "auto",
                  opacity: ".9"}}>
-            <Accordion defaultActiveKey="0">
+            <Accordion defaultActiveKey={0}>
                 {sezoniHtml}
             </Accordion>
 

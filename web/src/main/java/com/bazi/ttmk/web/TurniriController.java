@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path="/turniri")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TurniriController {
     private final TurniriService turniriService;
 

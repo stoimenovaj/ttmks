@@ -6,16 +6,13 @@ import com.bazi.ttmk.model.dto.NatprevarInLiga;
 import com.bazi.ttmk.model.dto.TopListTeamStats;
 import com.bazi.ttmk.service.LigiService;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(path="/ligi")
+@CrossOrigin(origins = "http://localhost:3000")
 public class LigiController {
 
     private final LigiService ligiService;

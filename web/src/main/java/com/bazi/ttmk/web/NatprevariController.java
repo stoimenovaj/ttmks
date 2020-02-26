@@ -4,16 +4,14 @@ import com.bazi.ttmk.model.Natprevar;
 import com.bazi.ttmk.service.NatprevariService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "/natprevari")
+@CrossOrigin(origins = "http://localhost:3000")
 public class NatprevariController {
     private final NatprevariService natprevariService;
 

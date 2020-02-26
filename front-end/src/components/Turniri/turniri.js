@@ -12,7 +12,16 @@ class Turniri extends React.Component {
         this.state = {};
         this.state.idKategorija = -1;
         this.state.idTurnir = -1;
+        this.state.currentTurnir = {};
     }
+
+    prikazhiTurnir = (idTurnir, idKategoirja) =>{
+        Turnirii.getTurnir(idTurnir, idKategoirja)
+            .then(response => {
+                this.setState({currentTurnir: response.data})
+            })
+            .catch();
+    };
 
     componentDidMount = () => {
         let final = [];
@@ -39,8 +48,8 @@ class Turniri extends React.Component {
     render() {
         return (
             <div className="row" style={{height: "100%", marginTop: "-16px"}}>
-                <Sezoni sezoniTurniri={this.state.sezoniTurniri}  />
-                <Turnir />
+                <Sezoni sezoniTurniri={this.state.sezoniTurniri} prikazhiTurnir={this.prikazhiTurnir} />
+                <Turnir turnir={this.state.currentTurnir} />
             </div>
         )   
     }

@@ -2,15 +2,13 @@ package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Spagja;
 import com.bazi.ttmk.service.SpagjaService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "/spagja")
+@CrossOrigin(origins = "http://localhost:3000")
 public class SpagjaController {
     private final SpagjaService spagjaService;
 

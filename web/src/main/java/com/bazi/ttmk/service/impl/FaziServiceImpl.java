@@ -2,6 +2,7 @@ package com.bazi.ttmk.service.impl;
 
 import com.bazi.ttmk.model.Faza;
 import com.bazi.ttmk.model.TurnirId;
+import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 import com.bazi.ttmk.repository.FaziRepository;
 import com.bazi.ttmk.repository.TurniriRepository;
 import com.bazi.ttmk.service.FaziService;
@@ -36,4 +37,5 @@ public class FaziServiceImpl implements FaziService {
         faza.setTurnir(this.turniriRepository.findById(new TurnirId(idTurnir,idKategorija)).orElseThrow(()->new RuntimeException("Turnir with primary key (" + idTurnir +", " + idKategorija  + ") not found")));
         return this.faziRepository.save(faza);
     }
+
 }

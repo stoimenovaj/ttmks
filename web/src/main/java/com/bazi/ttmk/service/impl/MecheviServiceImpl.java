@@ -1,6 +1,7 @@
 package com.bazi.ttmk.service.impl;
 
 import com.bazi.ttmk.model.*;
+import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 import com.bazi.ttmk.repository.*;
 import com.bazi.ttmk.service.MecheviService;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,30 @@ public class MecheviServiceImpl implements MecheviService {
         mech.setDobieniSetoviDomakjin(dobieniSetoviDomakjin);
         mech.setDobieniSetoviGostin(dobieniSetoviGostin);
         return this.mecheviRepository.save(mech);
+    }
+
+    @Override
+    public IgrachiInTurnirMech getProtivnik(Integer idTurnir, Integer idKategorija, Integer brojFaza, Integer idIgrach) {
+
+        Faza faza = this.faziRepository.findByIdTurnirAndIdKategorijaAndBrojFaza(idTurnir, idKategorija, brojFaza);
+
+        IgrachiInTurnirMech rv = faza.getMechevi().stream()
+                .filter(mech -> mech.getDomakjinIgrach().getIdLice() == idIgrach ||
+                        mech.getGostinIgrach().getIdLice() == idIgrach)
+                .findFirst()
+                .map(mech -> new IgrachiInTurnirMech(
+                        mech.getDomakjinIgrach().getIdLice(),
+                        mech.getDomakjinIgrach().getLice().getImeLice(),
+                        mech.getGostinIgrach().getIdLice(),
+                        mech.getGostinIgrach().getLice().getImeLice(),
+                        mech.getDobieniSetoviDomakjin(),
+                        mech.getDobieniSetoviGostin(),
+                        brojFaza,
+                        true
+                )).orElseThrow(() -> new RuntimeException("No mech found"));
+
+        rv.setMore(this.faziRepository.findByIdTurnirAndIdKategorijaAndBrojFaza(idTurnir, idKategorija, brojFaza + 1) != null);
+        return rv;
     }
 
 }

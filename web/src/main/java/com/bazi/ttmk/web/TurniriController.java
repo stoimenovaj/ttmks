@@ -1,9 +1,10 @@
 package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Turnir;
+import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
+import com.bazi.ttmk.service.FaziService;
 import com.bazi.ttmk.service.TurniriService;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping(path="/turniri")
 @CrossOrigin(origins = "http://localhost:3000")
 public class TurniriController {
+
     private final TurniriService turniriService;
 
     public TurniriController(TurniriService turniriService) {
@@ -40,6 +42,11 @@ public class TurniriController {
                                int idSala,
                                int brIgrachi){
         return this.turniriService.createTurnir(idSezona, idKategorija, ime, data, participacija, idSala, brIgrachi);
+    }
+
+    @GetMapping(path = "/{idTurnir}/{idKategorija}/finale")
+    public IgrachiInTurnirMech findFinale(@PathVariable Integer idTurnir, @PathVariable Integer idKategorija){
+        return turniriService.getFinale(idTurnir, idKategorija);
     }
 
 }

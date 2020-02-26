@@ -2,6 +2,10 @@ package com.bazi.ttmk.service.impl;
 
 import com.bazi.ttmk.model.*;
 import com.bazi.ttmk.model.dto.LigiWithTimovi;
+import com.bazi.ttmk.model.Faza;
+import com.bazi.ttmk.model.Turnir;
+import com.bazi.ttmk.model.TurnirId;
+import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 import com.bazi.ttmk.model.utils.DetaliFaza;
 import com.bazi.ttmk.repository.*;
 import com.bazi.ttmk.service.TurniriService;
@@ -93,6 +97,24 @@ public class TurniriServiceImpl implements TurniriService {
     @Override
     public Optional<Turnir> findTurnir(Integer idTurnir, Integer idKategorija) {
         return this.turniriRepository.findById(new TurnirId(idTurnir, idKategorija));
+    }
+
+    @Override
+    public IgrachiInTurnirMech getFinale(int idTurnir, int idKategorija) {
+        Faza finale = this.faziRepository.findByIdTurnirAndIdKategorijaAndBrojFaza(idTurnir, idKategorija, 1);
+
+        return finale.getMechevi().stream()
+                .findFirst()
+                .map(mech -> new IgrachiInTurnirMech(
+                        mech.getDomakjinIgrach().getIdLice(),
+                        mech.getDomakjinIgrach().getLice().getImeLice(),
+                        mech.getGostinIgrach().getIdLice(),
+                        mech.getGostinIgrach().getLice().getImeLice(),
+                        mech.getDobieniSetoviDomakjin(),
+                        mech.getDobieniSetoviGostin(),
+                        1,
+                        true
+                )).orElseThrow(() -> new RuntimeException("No mech found"));
     }
 
     @Override

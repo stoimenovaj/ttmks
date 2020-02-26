@@ -1,6 +1,7 @@
 package com.bazi.ttmk.service;
 
 import com.bazi.ttmk.model.Faza;
+import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 
 import java.util.List;
 

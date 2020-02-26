@@ -1,7 +1,9 @@
 package com.bazi.ttmk.service;
 
 import com.bazi.ttmk.model.Mech;
+import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface MecheviService {
@@ -11,5 +13,7 @@ public interface MecheviService {
     Mech createMechForNatprevar(Integer idDomakjin , Integer idGostin, Integer dobieniSetoviDomakjin, Integer dobieniSetoviGostin, Integer idSudija, Integer idNatprevar);
 
     Mech createMechForTurnir(Integer idTurnir, Integer idKategorija, Integer fazaRedenBroj,Integer idDomakjin , Integer idGostin, Integer dobieniSetoviDomakjin, Integer dobieniSetoviGostin, Integer idSudija);
+
+    IgrachiInTurnirMech getProtivnik(Integer idTurnir, Integer idKategorija, Integer brojFaza, Integer idIgrach);
 
 }

@@ -11,4 +11,6 @@ public interface FaziRepository extends JpaRepository<Faza, FazaId> {
 
     List<Faza> findByIdTurnirAndIdKategorija(int idTurnir, int idKategorija);
 
+    Faza findByIdTurnirAndIdKategorijaAndBrojFaza(int idTurnir, int idKategorija, int brojFaza);
+
 }

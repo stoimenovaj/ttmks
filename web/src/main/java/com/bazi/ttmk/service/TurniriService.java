@@ -16,4 +16,5 @@ public interface TurniriService {
     Optional<Turnir> findTurnir(Integer idTurnir, Integer idKategorija);
 
     List<LigiWithTimovi> findLigiWithTimovi(int idSezona);
+
 }

@@ -3,22 +3,8 @@ import repo from "../../../repository/testRepository"
 import Accordion from 'react-bootstrap/Accordion'
 import Card from "react-bootstrap/Card";
 import {useAccordionToggle} from "react-bootstrap";
+import {withRouter} from "react-router";
 
-function CustomToggle({ children, eventKey }) {
-    const decoratedOnClick = useAccordionToggle(eventKey, () =>
-        console.log('totally custom!'),
-    );
-
-    return (
-        <button
-            type="button"
-            className="btn btn-block btn-light"
-            onClick={decoratedOnClick}
-        >
-            {children}
-        </button>
-    );
-}
 
 const Sezoni = (props) => {
 
@@ -73,4 +59,20 @@ const Sezoni = (props) => {
     )
 };
 
-export default Sezoni
+function CustomToggle({ children, eventKey }) {
+    const decoratedOnClick = useAccordionToggle(eventKey, () =>
+        console.log('totally custom!'),
+    );
+
+    return (
+        <button
+            type="button"
+            className="btn btn-block btn-light"
+            onClick={decoratedOnClick}
+        >
+            {children}
+        </button>
+    );
+}
+
+export default withRouter(Sezoni)

@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import Turnirii from "../../service/turniriService";
 import Sezona from "../Natprevari/Sezona/sezona"
 import NatprevarInfo from "./NatprevarInfo/natprevarInfo";
 import NS from "../../service/natprevariService"
+import * as React from "react";
+import Sezoni from "./Sezoni/sezoni";
+import Turniri from "../../service/turniriService";
 
 
 class Natprevari extends Component {
@@ -22,9 +24,9 @@ class Natprevari extends Component {
     componentDidMount = () => {
         let final = [];
 
-        Turnirii.getAllSezoni()
+        Turniri.getAllSezoni()
             .then(response => {
-                let sezoni = response.data;
+            let sezoni = response.data;
                 for(let i = 0; i < sezoni.length; ++i){
                     Turnirii.getLigiForSezona(sezoni[i].idSezona)
                         .then(response2 => {

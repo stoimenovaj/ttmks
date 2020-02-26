@@ -1,6 +1,7 @@
 package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Mech;
+import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 import com.bazi.ttmk.service.MecheviService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -44,6 +45,14 @@ public class MecheviController {
                                     Integer dobieniSetoviGostin,
                                     Integer idSudija){
         return this.mecheviService.createMechForTurnir(idTurnir,idKategorija,fazaRedenBroj,idDomakjin,idGostin,dobieniSetoviDomakjin,dobieniSetoviGostin,idSudija);
+    }
+
+    @GetMapping(path = "/protivnik/{idTurnir}/{idKategorija}")
+    public IgrachiInTurnirMech findProtivnik(@PathVariable Integer idTurnir,
+                                             @PathVariable Integer idKategorija,
+                                             @RequestParam Integer brFaza,
+                                             @RequestParam Integer idIgrach){
+        return mecheviService.getProtivnik(idTurnir, idKategorija, brFaza, idIgrach);
     }
 
 }

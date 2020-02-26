@@ -28,7 +28,6 @@ import axios from "../custom-axios/axios";
 
 const apiUtils = {
     get: (url) => {
-        console.log("In api utils" + token() + " hand:" + localStorage.getItem(ACCESS_TOKEN));
         return axios.get(url, {
             headers: {
                 Authorization: token()

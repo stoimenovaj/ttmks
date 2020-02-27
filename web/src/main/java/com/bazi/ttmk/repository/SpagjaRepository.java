@@ -13,4 +13,6 @@ public interface SpagjaRepository extends JpaRepository<Spagja, SpagjaId> {
 
     List<Spagja> findByIdSezona(int idSezona);
 
+    List<Spagja> findByIdSezonaAndIdLiga(int idSezona, int idLiga);
+
 }

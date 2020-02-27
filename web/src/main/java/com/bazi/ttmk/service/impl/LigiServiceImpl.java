@@ -5,6 +5,7 @@ import com.bazi.ttmk.model.Natprevar;
 import com.bazi.ttmk.model.Spagja;
 import com.bazi.ttmk.model.Tim;
 import com.bazi.ttmk.model.dto.NatprevarInLiga;
+import com.bazi.ttmk.model.dto.TimDTO;
 import com.bazi.ttmk.model.dto.TopListTeamStats;
 import com.bazi.ttmk.repository.LigiRepository;
 import com.bazi.ttmk.repository.NatprevariRepository;
@@ -105,6 +106,17 @@ public class LigiServiceImpl implements LigiService {
                                 .collect(Collectors.toList())
                 ))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<TimDTO> getAllTimoviILiga(int idSezona, int idLiga) {
+        return this.spagjaRepository.findByIdSezonaAndIdLiga(idSezona, idLiga).stream()
+                .map(Spagja::getIdTim)
+                .map(timId -> timoviRepository.findById(timId).get())
+                .map(tim -> new TimDTO(
+                    tim.getIdTim(),
+                    tim.getImeTim()
+                )).collect(Collectors.toList());
     }
 
 }

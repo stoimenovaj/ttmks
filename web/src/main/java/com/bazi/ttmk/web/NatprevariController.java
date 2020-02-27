@@ -43,4 +43,6 @@ public class NatprevariController {
         return this.natprevariService.createNatprevar(idSezona,idLiga, kolo, idSala, dataOdigran, idTimDomakjin, idTimGostinid, poeniDomakjin, poeniGostin);
     }
 
+    
+
 }

@@ -2,7 +2,9 @@ package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Liga;
 import com.bazi.ttmk.model.Natprevar;
+import com.bazi.ttmk.model.Tim;
 import com.bazi.ttmk.model.dto.NatprevarInLiga;
+import com.bazi.ttmk.model.dto.TimDTO;
 import com.bazi.ttmk.model.dto.TopListTeamStats;
 import com.bazi.ttmk.service.LigiService;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -41,6 +43,11 @@ public class LigiController {
     @GetMapping(path = "/{idLiga}/natprevari")
     public List<NatprevarInLiga> getAllNatprevariVoLiga(int idSezona, @PathVariable int idLiga){
         return this.ligiService.getAllNatprevariVoLiga(idSezona, idLiga);
+    }
+
+    @GetMapping(path = "/{idSezona}/{idLiga}/timovi")
+    public List<TimDTO> getAllTimoviILiga(@PathVariable Integer idSezona, @PathVariable Integer idLiga){
+        return ligiService.getAllTimoviILiga(idSezona, idLiga);
     }
 
 }

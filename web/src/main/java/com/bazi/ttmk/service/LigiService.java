@@ -3,6 +3,7 @@ package com.bazi.ttmk.service;
 import com.bazi.ttmk.model.Liga;
 import com.bazi.ttmk.model.Natprevar;
 import com.bazi.ttmk.model.dto.NatprevarInLiga;
+import com.bazi.ttmk.model.dto.TimDTO;
 import com.bazi.ttmk.model.dto.TopListTeamStats;
 
 import java.util.List;
@@ -17,5 +18,7 @@ public interface LigiService {
     List<TopListTeamStats> topLista(int idSezona, int idLiga);
 
     List<NatprevarInLiga> getAllNatprevariVoLiga(int idSezona, int idLiga);
+
+    List<TimDTO> getAllTimoviILiga(int idSezona, int idLiga);
 
 }

@@ -9,6 +9,10 @@ const Ligi = {
 
     getAllLigiWithTimovi: (idSezona) => {
         return apiUtils.get(`/sezoni/${idSezona}/ligiWithTimovi`);
+    },
+
+    getAllTimoviInLiga: (idSezona, idLiga) => {
+        return apiUtils.get(`/ligi/${idSezona}/${idLiga}/timovi`);
     }
 };
 

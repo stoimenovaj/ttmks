@@ -10,6 +10,7 @@ import Turniri from "../Turniri/turniri";
 import {withRouter} from "react-router";
 import Timovi from "../Timovi/timovi";
 import Natprevari from "../Natprevari/natprevari";
+import CreateNatprevar from "../CreateNatprevar/createNatprevar";
 
 class App extends React.Component {
 
@@ -81,6 +82,9 @@ class App extends React.Component {
                         </Route>
                         <Route path={"/login"} exact>
                             <Login onLogin={this.handleLogin} getUser={this.loadCurrentUser} {...this.props}/>
+                        </Route>
+                        <Route path={"/create-natprevar"}>
+                            <CreateNatprevar/>
                         </Route>
                         {/*<Route path={"/logout"}>*/}
                         {/*    <h1>Logout</h1>*/}

@@ -124,6 +124,24 @@ public class TurniriServiceImpl implements TurniriService {
     }
 
     @Override
+    public List<LigiWithTimovi> findLigiWithTimovi(int idSezona) {
+        List<Spagja> spagja = this.spagjaRepository.findByIdSezona(idSezona);
+        Map<Integer, List<Spagja>> mapa = spagja.stream().collect(Collectors.groupingBy(Spagja::getIdLiga));
+        return mapa.entrySet().stream()
+                .map(entry -> {
+                    Liga liga = this.ligiRepository.findById(new LigaId(entry.getKey(), idSezona)).get();
+                    List<LigiWithTimovi.TimInfo> timovi = this.timoviRepository.findAllById(entry.getValue().stream()
+                            .map(Spagja::getIdTim).collect(Collectors.toList())).stream()
+                            .map(tim -> {
+                                return new LigiWithTimovi.TimInfo(tim.getIdTim(), tim.getImeTim(), tim.getGrad().getImeGrad());
+                            }).collect(Collectors.toList());
+
+                    return new LigiWithTimovi(liga.getIdLiga(), liga.getImeLiga(), timovi);
+                }).collect(Collectors.toList());
+    }
+
+
+    @Override
     public List<FazaInTurnir> getFaziForTurnir(int idTurnir, int idKategorija) {
         return this.faziRepository.findByIdTurnirAndIdKategorija(idTurnir, idKategorija).stream()
                 .map(faza -> {

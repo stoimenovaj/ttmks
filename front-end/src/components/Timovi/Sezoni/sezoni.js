@@ -25,7 +25,7 @@ const Sezoni = (props) => {
     let sezoni = props.getSezoni;
     let ligi = props.ligi;
 
-    let [aState, setAState] = useState({imeSezona : "Избери сезона"})
+    let [aState, setAState] = useState({imeSezona : "Избери сезона"});
 
     // so hooks za da se promeni sezonata
     const clickHandler = (e) => {

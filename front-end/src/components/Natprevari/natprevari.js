@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import Sezona from "../Natprevari/Sezona/sezona"
 import NatprevarInfo from "./NatprevarInfo/natprevarInfo";
 import NS from "../../service/natprevariService"
-import * as React from "react";
-import Sezoni from "./Sezoni/sezoni";
 import Turniri from "../../service/turniriService";
 
 
@@ -28,7 +26,7 @@ class Natprevari extends Component {
             .then(response => {
             let sezoni = response.data;
                 for(let i = 0; i < sezoni.length; ++i){
-                    Turnirii.getLigiForSezona(sezoni[i].idSezona)
+                    Turniri.getLigiForSezona(sezoni[i].idSezona)
                         .then(response2 => {
                             let ligi = response2.data;
                             final.push({sezona: sezoni[i], ligi: ligi});

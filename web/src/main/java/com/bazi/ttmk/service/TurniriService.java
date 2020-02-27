@@ -1,6 +1,7 @@
 package com.bazi.ttmk.service;
 
 import com.bazi.ttmk.model.Turnir;
+import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 import com.bazi.ttmk.model.dto.LigiWithTimovi;
 import com.bazi.ttmk.model.dto.FazaInTurnir;
 
@@ -16,7 +17,9 @@ public interface TurniriService {
 
     Optional<Turnir> findTurnir(Integer idTurnir, Integer idKategorija);
 
-    List<LigiWithTimovi> findLigiWithTimovi(int idSezona);
+    public IgrachiInTurnirMech getFinale(int idTurnir, int idKategorija);
+
+    public List<LigiWithTimovi> findLigiWithTimovi(int idSezona);
 
     List<FazaInTurnir> getFaziForTurnir(int idTurnir, int idKategorija);
 

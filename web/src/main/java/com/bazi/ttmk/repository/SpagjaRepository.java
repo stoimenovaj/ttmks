@@ -11,4 +11,6 @@ public interface SpagjaRepository extends JpaRepository<Spagja, SpagjaId> {
 
     List<Spagja> findByIdSezonaAndIdLigaOrderByTimPoeniDesc(int idSezona, int idLiga);
 
+    List<Spagja> findByIdSezona(int idSezona);
+
 }

@@ -30,7 +30,6 @@ public class TurniriController {
         return this.turniriService.findTurnir(idTurnir, idKategorija).orElse(null);
     }
 
-
     @PostMapping
     //@PreAuthorize("hasRole('ROLE_MANAGER')")
     public Turnir createTurnir(int idSezona,

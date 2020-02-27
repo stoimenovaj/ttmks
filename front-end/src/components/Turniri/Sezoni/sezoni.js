@@ -62,7 +62,7 @@ const Sezoni = (props) => {
     return(
         <div className="col-sm-3 bg-dark text-primary text-left pt-5 pb-5"
              style={{ borderRight: "1px black solid",
-                 maxHeight: "93vh",
+                 maxHeight: "80vh",
                  overflow: "auto",
                  opacity: ".9"}}>
             <Accordion defaultActiveKey={0}>

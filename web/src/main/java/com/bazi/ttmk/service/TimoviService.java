@@ -10,4 +10,5 @@ public interface TimoviService {
 
     Tim createTim(Integer idGrad, String imeTim, Integer godinaOsnovan, String kontaktEmail, String kontaktLice, String kontaktTelefon);
 
+    List<Object> findIgrachiMechevi(Integer idTim, Integer idSezona, Integer idLiga);
 }

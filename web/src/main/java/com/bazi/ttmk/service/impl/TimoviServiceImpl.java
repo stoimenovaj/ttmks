@@ -38,4 +38,9 @@ public class TimoviServiceImpl implements TimoviService {
         tim.setKontaktTelefon(kontaktTelefon);
         return this.timoviRepository.save(tim);
     }
+
+    @Override
+    public List<Object> findIgrachiMechevi(Integer idTim, Integer idSezona, Integer idLiga) {
+        return this.timoviRepository.findCrazyQuery(idTim, idSezona, idLiga);
+    }
 }

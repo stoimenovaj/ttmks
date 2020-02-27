@@ -1,6 +1,7 @@
 package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Tim;
+import com.bazi.ttmk.model.dto.IgrachMechevi;
 import com.bazi.ttmk.service.TimoviService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -32,4 +33,13 @@ public class TimoviController {
                         String kontaktTelefon) {
         return this.timoviService.createTim(idGrad, imeTim, godinaOsnovan, kontaktEmail, kontaktLice, kontaktTelefon);
     }
+
+    @GetMapping(path = "/{idTim}/igrachi")
+    List<Object> getIgrachMechevi(
+            @PathVariable Integer idTim,
+            @RequestParam Integer idSezona,
+            @RequestParam Integer idLiga){
+        return this.timoviService.findIgrachiMechevi(idTim, idSezona, idLiga);
+    }
+
 }

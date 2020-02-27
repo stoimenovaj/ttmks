@@ -1,14 +1,14 @@
 package com.bazi.ttmk.service.impl;
 
-import com.bazi.ttmk.model.Faza;
-import com.bazi.ttmk.model.Turnir;
-import com.bazi.ttmk.model.TurnirId;
+import com.bazi.ttmk.model.*;
+import com.bazi.ttmk.model.dto.LigiWithTimovi;
 import com.bazi.ttmk.model.utils.DetaliFaza;
 import com.bazi.ttmk.repository.*;
 import com.bazi.ttmk.service.TurniriService;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class TurniriServiceImpl implements TurniriService {
@@ -18,13 +18,19 @@ public class TurniriServiceImpl implements TurniriService {
     private final SaliRepository saliRepository;
     private final FaziRepository faziRepository;
     private final KategoriiRepository kategoriiRepository;
+    private final SpagjaRepository spagjaRepository;
+    private final LigiRepository ligiRepository;
+    private final TimoviRepository timoviRepository;
 
-    public TurniriServiceImpl(TurniriRepository turniriRepository, SezoniRepository sezoniRepository, SaliRepository saliRepository, FaziRepository faziRepository, KategoriiRepository kategoriiRepository) {
+    public TurniriServiceImpl(TurniriRepository turniriRepository, SezoniRepository sezoniRepository, SaliRepository saliRepository, FaziRepository faziRepository, KategoriiRepository kategoriiRepository, SpagjaRepository spagjaRepository, LigiRepository ligiRepository, TimoviRepository timoviRepository) {
         this.turniriRepository = turniriRepository;
         this.sezoniRepository = sezoniRepository;
         this.saliRepository = saliRepository;
         this.faziRepository = faziRepository;
         this.kategoriiRepository = kategoriiRepository;
+        this.spagjaRepository = spagjaRepository;
+        this.ligiRepository = ligiRepository;
+        this.timoviRepository = timoviRepository;
     }
 
 
@@ -87,5 +93,22 @@ public class TurniriServiceImpl implements TurniriService {
     @Override
     public Optional<Turnir> findTurnir(Integer idTurnir, Integer idKategorija) {
         return this.turniriRepository.findById(new TurnirId(idTurnir, idKategorija));
+    }
+
+    @Override
+    public List<LigiWithTimovi> findLigiWithTimovi(int idSezona) {
+        List<Spagja> spagja = this.spagjaRepository.findByIdSezona(idSezona);
+        Map<Integer, List<Spagja>> mapa = spagja.stream().collect(Collectors.groupingBy(Spagja::getIdLiga));
+        return mapa.entrySet().stream()
+                .map(entry -> {
+            Liga liga = this.ligiRepository.findById(new LigaId(entry.getKey(), idSezona)).get();
+            List<LigiWithTimovi.TimInfo> timovi = this.timoviRepository.findAllById(entry.getValue().stream()
+                    .map(Spagja::getIdTim).collect(Collectors.toList())).stream()
+                    .map(tim -> {
+                        return new LigiWithTimovi.TimInfo(tim.getIdTim(), tim.getImeTim(), tim.getGrad().getImeGrad());
+                    }).collect(Collectors.toList());
+
+            return new LigiWithTimovi(liga.getIdLiga(), liga.getImeLiga(), timovi);
+        }).collect(Collectors.toList());
     }
 }

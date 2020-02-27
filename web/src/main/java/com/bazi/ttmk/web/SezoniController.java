@@ -3,8 +3,9 @@ package com.bazi.ttmk.web;
 import com.bazi.ttmk.model.Liga;
 import com.bazi.ttmk.model.Sezona;
 import com.bazi.ttmk.model.Turnir;
+import com.bazi.ttmk.model.dto.LigiWithTimovi;
 import com.bazi.ttmk.service.SezoniService;
-import org.springframework.security.access.prepost.PreAuthorize;
+import com.bazi.ttmk.service.TurniriService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +16,11 @@ import java.util.List;
 public class SezoniController {
 
     private final SezoniService sezoniService;
+    private final TurniriService turniriService;
 
-    public SezoniController(SezoniService sezoniService) {
+    public SezoniController(SezoniService sezoniService, TurniriService turniriService) {
         this.sezoniService = sezoniService;
+        this.turniriService = turniriService;
     }
 
     @GetMapping
@@ -42,4 +45,8 @@ public class SezoniController {
         return this.sezoniService.getAllTurniriInSezona(idSezona);
     }
 
+    @GetMapping(path = "/{idSezona}/ligiWithTimovi")
+    public List<LigiWithTimovi> findAllLigiWithTimovi(@PathVariable int idSezona){
+        return this.turniriService.findLigiWithTimovi(idSezona);
+    }
 }

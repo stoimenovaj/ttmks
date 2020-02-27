@@ -1,6 +1,7 @@
 package com.bazi.ttmk.service;
 
 import com.bazi.ttmk.model.Turnir;
+import com.bazi.ttmk.model.dto.LigiWithTimovi;
 
 import java.util.Date;
 import java.util.List;
@@ -13,4 +14,6 @@ public interface TurniriService {
     Turnir createTurnir(int idSezona, int idKategorija, String ime, Date data, int participacija, int idSala, int brIgrachi);
 
     Optional<Turnir> findTurnir(Integer idTurnir, Integer idKategorija);
+
+    List<LigiWithTimovi> findLigiWithTimovi(int idSezona);
 }

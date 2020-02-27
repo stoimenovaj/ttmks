@@ -34,4 +34,9 @@ public class SaliServiceImpl implements SaliService {
         sala.setGrad(grad);
         return this.saliRepository.save(sala);
     }
+
+    @Override
+    public List<Sala> getSaliFromGrad(int idGrad) {
+        return this.saliRepository.findAllByGrad_IdGrad(idGrad);
+    }
 }

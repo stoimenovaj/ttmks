@@ -15,6 +15,7 @@
     "moment": "^2.24.0",
     "popper.js": "^1.16.0",
     "react": "^16.12.0",
+    "react-bootbox": "^1.1.1",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
     "react-moment": "^0.9.6",

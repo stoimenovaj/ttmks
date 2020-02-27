@@ -28,4 +28,9 @@ public class SaliController {
                            Integer idGrad) {
         return this.saliService.createSala(imeSala, idGrad);
     }
+
+    @GetMapping("/{idGrad}")
+    public List<Sala> getSaliFromGrad(@PathVariable int idGrad){
+
+    }
 }

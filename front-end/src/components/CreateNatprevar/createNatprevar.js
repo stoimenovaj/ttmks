@@ -11,16 +11,28 @@ class CreateNatprevar extends Component {
         super(props);
 
         this.state = {
-            showZapisnik: false
+            showZapisnik: false,
+            generalInfo: false // da se klade na site kontroli
         }
 
     }
+
+    // stavo go na onClick={this.prodolzi} ms 
+    prodolzi = () => {
+
+        // validacii
+
+        this.setState({
+            showZapisnik: true
+        });
+
+    };
 
     render() {
 
         // sezoni
 
-        Turniri.getAllSezoni().then().catch();
+        //Turniri.getAllSezoni().then().catch();
 
         // site ligi (od sezonata)
 
@@ -28,21 +40,21 @@ class CreateNatprevar extends Component {
 
         // timovi od taa liga i sezona (posle izborot na liga i sezona)
 
-        // Ligi.getAllTimoviInLiga(idSezona, idLiga).then().catch();
+        //Ligi.getAllTimoviInLiga(idSezona, idLiga).then().catch();
 
         // site sali
 
-        Sali.getAllSali().then().catch();
+        //Sali.getAllSali().then().catch();
 
         // site gradovi
 
-        Gradovi.getAllGradovi().then().catch();
+        //Gradovi.getAllGradovi().then().catch();
 
 
 
         let zapisnik = null;
         if(this.state.showZapisnik)
-            zapisnik = <Zapisnik/>;
+            zapisnik = <Zapisnik mechevi={[]}/>;
 
         return (
             <div className="container bg-dark text-primary text-left pt-5 pb-5" style={{opacity: ".9"}}>
@@ -76,7 +88,7 @@ class CreateNatprevar extends Component {
                         </div>
                     </div>
                 </div>
-                <br/><br/>
+                <br/>
                 <div className="row">
                     <div className="col-sm-3"/>
                     <div className="col-sm-6">

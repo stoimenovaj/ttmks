@@ -10,4 +10,6 @@ public interface SaliService {
 
     Sala createSala(String imeSala, Integer idGrad);
 
+    List<Sala> getSaliFromGrad(int idGrad);
+
 }

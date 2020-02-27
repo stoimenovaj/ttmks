@@ -8,7 +8,7 @@ const NatprevarInfo = (props) => {
 
     return (
         <div className="col-sm-9 mt-5"
-             style={{opacity: ".9", maxHeight: "80vh", overflow: "auto"}}>
+             style={{opacity: ".9", maxHeight: "80vh"}}>
             <TopLista topLista={props.topLista}/>
             <Kola natprevari={props.natprevari}/>
         </div>

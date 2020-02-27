@@ -24,11 +24,11 @@ class CreateNatprevar extends Component {
 
         // site ligi (od sezonata)
 
-        Ligi.getAllLigi(idSezona).then().catch();
+        // Ligi.getAllLigi(idSezona).then().catch();
 
         // timovi od taa liga i sezona (posle izborot na liga i sezona)
 
-        Ligi.getAllTimoviInLiga(idSezona, idLiga).then().catch();
+        // Ligi.getAllTimoviInLiga(idSezona, idLiga).then().catch();
 
         // site sali
 
@@ -45,76 +45,42 @@ class CreateNatprevar extends Component {
             zapisnik = <Zapisnik/>;
 
         return (
-            <div className="container-fluid bg-dark text-primary text-left pt-5 pb-5">
+            <div className="container bg-dark text-primary text-left pt-5 pb-5" style={{opacity: ".9"}}>
 
                 <h1 className="text-center">ЗАПИСНИК</h1>
-                <br/>
+                <hr/>
                 <div className="row">
+
+                    <div className="col-sm-3" />
                     <div className="col-sm-6 text-center">
-                        <div className="col">
-                            <div>од одиграниот натпревар како дел од
-                                <input type="text" className="form-control text-center"
-                                       placeholder="Prva liga/Prijatelski"/>
-                                натпревар помеѓу:
-                                <br/>
-                                <input type="text" className="form-control text-center"
-                                       placeholder="Избери го домаќинот"/>
-                                и
-                                <input type="text" className="form-control text-center"
-                                       placeholder="Избери го гостинот"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-sm-6">
+                        Сезона:
+                        <input className="form-control text-center" type="text" placeholder="asdf"/>
+                        Лига:
+                        <input className="form-control text-center" type="text" placeholder="asdf"/>
+                        Град:
+                        <input className="form-control text-center" type="text" placeholder="asdf"/>
+                        Сала:
+                        <input className="form-control text-center" type="text" placeholder="asdf"/>
+                        Датум:
+                        <input className="form-control text-center" type="text" placeholder="asdf"/>
+                        Коло:
+                        <input className="form-control text-center" type="text" placeholder="asdf"/>
+                        <br/>
                         <div className="row">
                             <div className="col-sm-6">
-                                <div className="row">
-                                    <div className="col-sm text-center">
-                                        Сезона:
-                                        <input className="form-control" type="text" placeholder="asdf"/>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm text-center">
-                                        Лига:
-                                        <input type="text" className="form-control" placeholder="asdf"/>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm text-center">
-                                        Град:
-                                        <input type="text" className="form-control" placeholder="asdf"/>
-                                    </div>
-                                </div>
+                                <input type="text" className="form-control text-center" placeholder="Избери го домаќинот"/>
                             </div>
                             <div className="col-sm-6">
-                                <div className="row">
-                                    <div className="col-sm text-center">
-                                        Сала:
-                                        <input type="text" className="form-control" placeholder="asdf"/>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm text-center">
-                                        Датум:
-                                        <input type="text" className="form-control" placeholder="asdf"/>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm text-center">
-                                        Коло:
-                                        <input type="text" className="form-control" placeholder="asdf"/>
-                                    </div>
-                                </div>
+                                <input type="text" className="form-control text-center" placeholder="Избери го гостинот"/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <br/><br/>
                 <div className="row">
-                    <div className="col-sm-11"/>
-                    <div className="col-sm-1 text-right">
-                        <button className="btn btn-success btn-block">Продолжи</button>
+                    <div className="col-sm-3"/>
+                    <div className="col-sm-6">
+                        <button className="btn btn-primary text-white btn-block">Продолжи</button>
                     </div>
                 </div>
                 <br/><br/>

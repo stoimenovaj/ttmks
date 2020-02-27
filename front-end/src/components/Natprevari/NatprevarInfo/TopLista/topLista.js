@@ -21,7 +21,7 @@ const TopLista = (props) => {
 
     return (
         <div
-             style={{opacity: ".9", maxHeight: "80vh", overflow: "auto"}}>
+             style={{opacity: ".9", maxHeight: "80vh"}}>
 
             <Table striped bordered hover variant="dark">
                 <thead className="fixed">

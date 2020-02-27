@@ -17,7 +17,7 @@ const Kola = (props) => {
 
         let tbody = kolo.natprevari.map((n, index) => {
             return <tr>
-                <td>{index+1}</td>
+                <td>{index+1} КОЛО</td>
                 <td>{n.imeDomakjin}</td>
                 <td>{n.domakjinMechevi}</td>
                 <td>{n.gostinMechevi}</td>
@@ -35,7 +35,7 @@ const Kola = (props) => {
 
     return (
         <div
-            style={{opacity: ".9", maxHeight: "80vh", overflow: "auto"}}>
+            style={{opacity: ".9", maxHeight: "80vh"}}>
             {tabeliHtml}
         </div>
     );

@@ -101,6 +101,7 @@ class App extends React.Component {
                 width: "100%",
                 height: "100vh",
                 backgroundPosition: "center center",
+                overflow: "auto",
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed"
             }}>

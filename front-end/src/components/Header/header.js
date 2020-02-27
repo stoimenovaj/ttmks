@@ -17,15 +17,15 @@ const Header = (props) => {
         console.log(props.currentUser);
         if (props.currentUser.role === ROLE_ADMIN) {
             items = [
-                <li className="nav-item"><Link className="nav-link" to={"/register"}>Регистрирај лице</Link></li>
+                <Link className="nav-link" to={"/register"}>Регистрирај лице</Link>
             ];
         }
         items.push(
-            <li className="nav-item"><Link className="nav-link" to={"#"} onClick={handleLogout}>Одјава</Link></li>
+            <Link className="nav-link" to={"#"} onClick={handleLogout}>Одјава</Link>
         );
     } else {
         items = [
-            <li className="nav-item"><Link className="nav-link" to={"/login"}>Логирај се</Link></li>
+                <Link className="nav-link" to={"/login"}>Логирај се</Link>
         ];
     }
 
@@ -47,10 +47,10 @@ const Header = (props) => {
                 <ul className="nav navbar-nav mr-auto">
                     <li className="nav-item"><Link className="nav-link" to={"/turniri"}>Турнири</Link></li>
                     <li className="nav-item"><Link className="nav-link" to={"/natprevari"}>Натпревари</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to={"/registriraniLica"}>Регистрирани
-                        лица</Link></li>
-                    {items}
+                    <li className="nav-item"><Link className="nav-link" to={"/timovi"}>Тимови</Link></li>
                 </ul>
+                {items}
+
             </div>
 
         </nav>

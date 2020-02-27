@@ -8,6 +8,8 @@ import Auth from "../../service/authService";
 import {ACCESS_TOKEN} from "../../constants";
 import Turniri from "../Turniri/turniri";
 import {withRouter} from "react-router";
+import Timovi from "../Timovi/timovi";
+import Natprevari from "../Natprevari/natprevari";
 
 class App extends React.Component {
 
@@ -69,10 +71,10 @@ class App extends React.Component {
                             <Turniri />
                         </Route>
                         <Route path={"/natprevari"} exact>
-                            <h1>Natprevari</h1>
+                            <Natprevari />
                         </Route>
-                        <Route path={"/registriraniLica"} exact>
-                            <h1>Registrirani lica</h1>
+                        <Route path={"/timovi"} exact>
+                            <Timovi />
                         </Route>
                         <Route path={"/register"} exact>
                             <h1>Register</h1>

@@ -13,6 +13,10 @@ const Turniri = {
 
     getTurnir: (idTurnir, idKategorija) => {
         return apiUtils.get(`/turniri/${idTurnir}/${idKategorija}`)
+    },
+
+    getLigiForSezona: (idSezona) => {
+        return apiUtils.get(`/sezoni/${idSezona}/ligi`)
     }
 
 };

@@ -1,6 +1,7 @@
 package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Turnir;
+import com.bazi.ttmk.model.dto.FazaInTurnir;
 import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 import com.bazi.ttmk.service.FaziService;
 import com.bazi.ttmk.service.TurniriService;
@@ -47,6 +48,12 @@ public class TurniriController {
     @GetMapping(path = "/{idTurnir}/{idKategorija}/finale")
     public IgrachiInTurnirMech findFinale(@PathVariable Integer idTurnir, @PathVariable Integer idKategorija){
         return turniriService.getFinale(idTurnir, idKategorija);
+    }
+
+    @GetMapping(path = "/{idTurnir}/{idKategorija}/fazi")
+    public List<FazaInTurnir> findFaziInTurnir(@PathVariable Integer idTurnir,
+                                               @PathVariable Integer idKategorija){
+        return this.turniriService.getFaziForTurnir(idTurnir, idKategorija);
     }
 
 }

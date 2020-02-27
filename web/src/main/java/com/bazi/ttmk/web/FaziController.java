@@ -1,6 +1,7 @@
 package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Faza;
+import com.bazi.ttmk.model.dto.FazaInTurnir;
 import com.bazi.ttmk.service.FaziService;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -31,4 +32,5 @@ public class FaziController {
                            int brojFaza){
         return this.faziService.createFaza(idTurnir,idKategorija,opisFaza,brojFaza);
     }
+
 }

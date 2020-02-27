@@ -11,25 +11,23 @@ import lombok.Setter;
 @NoArgsConstructor
 public class IgrachiInTurnirMech {
 
-    // igrach1
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class IgrachInTurnir{
 
-    private int id1;
+        private int id;
 
-    private String ime1;
+        private String ime;
 
-    // igrach2
+        private int poeni;
 
-    private int id2;
+    }
 
-    private String ime2;
+    IgrachInTurnir igrach1;
 
-    // rezultat
-
-    private int poeni1;
-
-    private  int poeni2;
-
-    // faza
+    IgrachInTurnir igrach2;
 
     private int brFaza;
 

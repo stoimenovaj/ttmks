@@ -5,6 +5,8 @@ import com.bazi.ttmk.model.dto.LigiWithTimovi;
 import com.bazi.ttmk.model.Faza;
 import com.bazi.ttmk.model.Turnir;
 import com.bazi.ttmk.model.TurnirId;
+import com.bazi.ttmk.model.dto.FazaInTurnir;
+import com.bazi.ttmk.model.dto.IgrachInMech;
 import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 import com.bazi.ttmk.model.utils.DetaliFaza;
 import com.bazi.ttmk.repository.*;
@@ -43,12 +45,12 @@ public class TurniriServiceImpl implements TurniriService {
         return this.turniriRepository.findAll();
     }
 
-    private List<Faza> createFaziForTurnir(Turnir t, int brIgrachi){
+    private List<Faza> createFaziForTurnir(Turnir t, int brIgrachi) {
         int brFazi = (int) (Math.log(brIgrachi) / Math.log(2));
 
         List<Faza> fazi = new ArrayList<>();
 
-        for(int i=1; i<=brFazi; i++){
+        for (int i = 1; i <= brFazi; i++) {
             Faza f = new Faza();
 
             f.setIdTurnir(t.getIdTurnir());
@@ -106,31 +108,54 @@ public class TurniriServiceImpl implements TurniriService {
         return finale.getMechevi().stream()
                 .findFirst()
                 .map(mech -> new IgrachiInTurnirMech(
-                        mech.getDomakjinIgrach().getIdLice(),
-                        mech.getDomakjinIgrach().getLice().getImeLice(),
-                        mech.getGostinIgrach().getIdLice(),
-                        mech.getGostinIgrach().getLice().getImeLice(),
-                        mech.getDobieniSetoviDomakjin(),
-                        mech.getDobieniSetoviGostin(),
+                        new IgrachiInTurnirMech.IgrachInTurnir(
+                                mech.getDomakjinIgrach().getIdLice(),
+                                mech.getDomakjinIgrach().getLice().getImeLice(),
+                                mech.getDobieniSetoviDomakjin()
+                        ),
+                        new IgrachiInTurnirMech.IgrachInTurnir(
+                                mech.getGostinIgrach().getIdLice(),
+                                mech.getGostinIgrach().getLice().getImeLice(),
+                                mech.getDobieniSetoviGostin()
+                        ),
                         1,
                         true
                 )).orElseThrow(() -> new RuntimeException("No mech found"));
     }
 
     @Override
-    public List<LigiWithTimovi> findLigiWithTimovi(int idSezona) {
-        List<Spagja> spagja = this.spagjaRepository.findByIdSezona(idSezona);
-        Map<Integer, List<Spagja>> mapa = spagja.stream().collect(Collectors.groupingBy(Spagja::getIdLiga));
-        return mapa.entrySet().stream()
-                .map(entry -> {
-            Liga liga = this.ligiRepository.findById(new LigaId(entry.getKey(), idSezona)).get();
-            List<LigiWithTimovi.TimInfo> timovi = this.timoviRepository.findAllById(entry.getValue().stream()
-                    .map(Spagja::getIdTim).collect(Collectors.toList())).stream()
-                    .map(tim -> {
-                        return new LigiWithTimovi.TimInfo(tim.getIdTim(), tim.getImeTim(), tim.getGrad().getImeGrad());
-                    }).collect(Collectors.toList());
-
-            return new LigiWithTimovi(liga.getIdLiga(), liga.getImeLiga(), timovi);
-        }).collect(Collectors.toList());
+    public List<FazaInTurnir> getFaziForTurnir(int idTurnir, int idKategorija) {
+        return this.faziRepository.findByIdTurnirAndIdKategorija(idTurnir, idKategorija).stream()
+                .map(faza -> {
+                    List<FazaInTurnir.MechInFaza> mechevi = faza.getMechevi().stream()
+                            .map(mech -> {
+                                return new FazaInTurnir.MechInFaza(
+                                        new IgrachInMech(
+                                                mech.getDomakjinIgrach().getIdLice(),
+                                                mech.getDomakjinIgrach().getLice().getImeLice(),
+                                                mech.getDomakjinIgrach().getLice().getPrezimeLice(),
+                                                mech.getDobieniSetoviDomakjin()
+                                        ),
+                                        new IgrachInMech(
+                                                mech.getGostinIgrach().getIdLice(),
+                                                mech.getGostinIgrach().getLice().getImeLice(),
+                                                mech.getGostinIgrach().getLice().getPrezimeLice(),
+                                                mech.getDobieniSetoviGostin()
+                                        ),
+                                        mech.getSetovi().stream()
+                                                .map(set -> new FazaInTurnir.MechInFaza.SetInMech(
+                                                        set.getPoeniDomakjin(),
+                                                        set.getPoeniGostin()
+                                                )).collect(Collectors.toList())
+                                );
+                            }).collect(Collectors.toList());
+                    return new FazaInTurnir(
+                            faza.getBrojFaza(),
+                            faza.getOpisFaza(),
+                            mechevi
+                    );
+                })
+                .sorted(Comparator.comparingInt(FazaInTurnir::getBroj))
+                .collect(Collectors.toList());
     }
 }

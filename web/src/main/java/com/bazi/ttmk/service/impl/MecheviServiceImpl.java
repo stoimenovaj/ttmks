@@ -76,12 +76,16 @@ public class MecheviServiceImpl implements MecheviService {
                         mech.getGostinIgrach().getIdLice() == idIgrach)
                 .findFirst()
                 .map(mech -> new IgrachiInTurnirMech(
-                        mech.getDomakjinIgrach().getIdLice(),
-                        mech.getDomakjinIgrach().getLice().getImeLice(),
-                        mech.getGostinIgrach().getIdLice(),
-                        mech.getGostinIgrach().getLice().getImeLice(),
-                        mech.getDobieniSetoviDomakjin(),
-                        mech.getDobieniSetoviGostin(),
+                        new IgrachiInTurnirMech.IgrachInTurnir(
+                                mech.getDomakjinIgrach().getIdLice(),
+                                mech.getDomakjinIgrach().getLice().getImeLice(),
+                                mech.getDobieniSetoviDomakjin()
+                        ),
+                        new IgrachiInTurnirMech.IgrachInTurnir(
+                                mech.getGostinIgrach().getIdLice(),
+                                mech.getGostinIgrach().getLice().getImeLice(),
+                                mech.getDobieniSetoviGostin()
+                        ),
                         brojFaza,
                         true
                 )).orElseThrow(() -> new RuntimeException("No mech found"));

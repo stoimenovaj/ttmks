@@ -1,6 +1,7 @@
 package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Natprevar;
+import com.bazi.ttmk.model.dto.NatprevarRequest;
 import com.bazi.ttmk.service.NatprevariService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,20 +30,24 @@ public class NatprevariController {
         return this.natprevariService.brojDobieni(idSezona, idLiga, timId);
     }
 
-    @PostMapping
-    //@PreAuthorize("hasRole('ROLE_MANAGER')")
-    public Natprevar createNatprevar(Integer idSezona,
-                                     Integer idLiga,
-                                     Integer kolo,
-                                     Integer idSala,
-                                     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dataOdigran,
-                                     Integer idTimDomakjin,
-                                     Integer idTimGostinid,
-                                     Integer poeniDomakjin,
-                                     Integer poeniGostin) {
-        return this.natprevariService.createNatprevar(idSezona,idLiga, kolo, idSala, dataOdigran, idTimDomakjin, idTimGostinid, poeniDomakjin, poeniGostin);
-    }
+//    @PostMapping
+//    //@PreAuthorize("hasRole('ROLE_MANAGER')")
+//    public Natprevar createNatprevar(Integer idSezona,
+//                                     Integer idLiga,
+//                                     Integer kolo,
+//                                     Integer idSala,
+//                                     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dataOdigran,
+//                                     Integer idTimDomakjin,
+//                                     Integer idTimGostinid,
+//                                     Integer poeniDomakjin,
+//                                     Integer poeniGostin) {
+//        return this.natprevariService.createNatprevar(idSezona,idLiga, kolo, idSala, dataOdigran, idTimDomakjin, idTimGostinid, poeniDomakjin, poeniGostin);
+//    }
 
+    @PostMapping
+    public Natprevar createNatprevar(@RequestBody NatprevarRequest request){
+        return this.natprevariService.createNatprevar(request);
+    }
     
 
 }

@@ -3,11 +3,13 @@ package com.bazi.ttmk.web;
 import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
 import com.bazi.ttmk.model.dto.IgrachMechevi;
+import com.bazi.ttmk.model.dto.TimDTO;
 import com.bazi.ttmk.service.TimoviService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/timovi")
@@ -47,6 +49,11 @@ public class TimoviController {
     List<Object> getSrekjniSaliForTeam(@PathVariable Integer idTim){
         return this.timoviService.findSrekjniSali(idTim);
     }
+    
+    @GetMapping(path = "/dto")
+    public List<TimDTO> getAllTimoviDTO(){
+        return this.timoviService.getAllTimovi().stream().map(tim -> new TimDTO(tim.getIdTim(), tim.getImeTim()))
+                .collect(Collectors.toList());
 
     @GetMapping(path = "/{idTim}/tim-natprevari-stats")
     List<Object> getTimNatprevariStats(@PathVariable Integer idTim){

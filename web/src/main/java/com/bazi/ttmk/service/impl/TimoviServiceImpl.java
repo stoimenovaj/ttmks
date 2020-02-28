@@ -65,4 +65,9 @@ public class TimoviServiceImpl implements TimoviService {
     public List<Object> findNajdobraFazaForIgrach(Integer idIgrach) {
         return this.timoviRepository.findNajdobraFazaForIgrach(idIgrach);
     }
+
+    @Override
+    public List<Object> findAllPobedniciFromKategory(Integer idKategorija) {
+        return this.timoviRepository.findAllPobedniciFromKategory(idKategorija);
+    }
 }

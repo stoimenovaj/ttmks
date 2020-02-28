@@ -51,9 +51,10 @@ public class TimoviController {
     }
     
     @GetMapping(path = "/dto")
-    public List<TimDTO> getAllTimoviDTO(){
+    public List<TimDTO> getAllTimoviDTO() {
         return this.timoviService.getAllTimovi().stream().map(tim -> new TimDTO(tim.getIdTim(), tim.getImeTim()))
                 .collect(Collectors.toList());
+    }
 
     @GetMapping(path = "/{idTim}/tim-natprevari-stats")
     List<Object> getTimNatprevariStats(@PathVariable Integer idTim){
@@ -70,4 +71,8 @@ public class TimoviController {
         return this.timoviService.findNajdobraFazaForIgrach(idIgrach);
     }
 
+    @GetMapping(path = "/{idKategorija}/pobednici-turniri")
+    List<Object> getPobedniciFromKategorija(@PathVariable Integer idKategorija){
+        return this.timoviService.findAllPobedniciFromKategory(idKategorija);
+    }
 }

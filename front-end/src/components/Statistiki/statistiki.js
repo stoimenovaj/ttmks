@@ -5,6 +5,7 @@ import SrekjnaSala from "./SrekjnaSala/srekjnaSala";
 import StatsNatprevarZaTim from "./StatsNatprevariZaTim/statsNatprevarZaTim";
 import DomakjinTim from "./DomakinTim/domakjinTim";
 import NajdobraFaza from "./NajdobraFaza/najdobraFaza";
+import KategorijaPobednici from "./KategorijaPobednici/kategorijaPobednici";
 
 class Statistiki extends Component {
     render() {
@@ -23,6 +24,9 @@ class Statistiki extends Component {
                     </Route>
                     <Route path={"/statistiki/najdobra-faza"} exact>
                         <NajdobraFaza />
+                    </Route>
+                    <Route path={"/statistiki/kategorija-pobednici"} exact>
+                        <KategorijaPobednici />
                     </Route>
                 </Switch>
             </div>

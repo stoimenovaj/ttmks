@@ -21,4 +21,6 @@ public interface TimoviService {
     List<Object> findPobediVoGradOsnovan(Integer idTim);
 
     List<Object> findNajdobraFazaForIgrach(Integer idIgrach);
+
+    List<Object> findAllPobedniciFromKategory(Integer idKategorija);
 }

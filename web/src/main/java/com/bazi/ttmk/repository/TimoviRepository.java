@@ -146,4 +146,24 @@ public interface TimoviRepository extends JpaRepository<Tim,Integer> {
                     "inner join project.turniri as t on subq.turnir=t.id_turnir and subq.kategorija=t.id_kategorija "
             , nativeQuery = true)
     List<Object> findNajdobraFazaForIgrach(Integer idIgrach);
+
+    @Query(value =
+            "select ime_turnir, impb.ime_lice as ime_pobednik, impb.prezime_lice as prezime_pobednik " +
+                    "from project.turniri as t " +
+                    "inner join ( " +
+                    "select rl.prezime_lice, rl.ime_lice, pobednici_subq.faza_id_turnir, pobednici_subq.kat from project.registrirani_lica as rl " +
+                    "inner join " +
+                    "( " +
+                    "select " +
+                    "case " +
+                    "when m.dobieni_setovi_domakjin > m.dobieni_setovi_gostin then id_lice_igrach_domakjin " +
+                    "when m.dobieni_setovi_domakjin < m.dobieni_setovi_gostin then id_lice_igrach_gostin " +
+                    "end as pobednik_igrach, m.faza_id_turnir, m.faza_id_kategorija as kat " +
+                    "from project.mechevi as m " +
+                    "inner join project.fazi as f on f.id_kategorija=m.faza_id_kategorija and f.id_turnir=m.faza_id_turnir and f.reden_broj=m.faza_reden_broj " +
+                    "where m.faza_id_kategorija=?1 and f.broj_faza=?1 " +
+                    ") as pobednici_subq on rl.id_lice=pobednici_subq.pobednik_igrach " +
+                    ") as impb on t.id_turnir=impb.faza_id_turnir and t.id_kategorija=impb.kat "
+            , nativeQuery = true)
+    List<Object> findAllPobedniciFromKategory(Integer idKategorija);
 }

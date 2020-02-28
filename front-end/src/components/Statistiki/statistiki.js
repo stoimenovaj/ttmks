@@ -3,6 +3,9 @@ import IzborStatistiki from "./IzborStatistiki/izborStatistiki";
 import {Route, Switch} from "react-router";
 import SrekjnaSala from "./SrekjnaSala/srekjnaSala";
 import StatsNatprevarZaTim from "./StatsNatprevariZaTim/statsNatprevarZaTim";
+import DomakjinTim from "./DomakinTim/domakjinTim";
+import NajdobraFaza from "./NajdobraFaza/najdobraFaza";
+import KategorijaPobednici from "./KategorijaPobednici/kategorijaPobednici";
 
 class Statistiki extends Component {
     render() {
@@ -15,6 +18,15 @@ class Statistiki extends Component {
                     </Route>
                     <Route path={"/statistiki/tim-natprevari-stats"} exact>
                         <StatsNatprevarZaTim />
+                    </Route>
+                    <Route path={"/statistiki/tim-domakjin"} exact>
+                        <DomakjinTim />
+                    </Route>
+                    <Route path={"/statistiki/najdobra-faza"} exact>
+                        <NajdobraFaza />
+                    </Route>
+                    <Route path={"/statistiki/kategorija-pobednici"} exact>
+                        <KategorijaPobednici />
                     </Route>
                 </Switch>
             </div>

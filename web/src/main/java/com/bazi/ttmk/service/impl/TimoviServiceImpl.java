@@ -8,6 +8,7 @@ import com.bazi.ttmk.repository.GradoviRepository;
 import com.bazi.ttmk.repository.TimoviRepository;
 import com.bazi.ttmk.service.TimoviService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -67,6 +68,18 @@ public class TimoviServiceImpl implements TimoviService {
                         igr.getIdLice(),
                         igr.getLice().getImeLice(),
                         igr.getLice().getPrezimeLice()
-                )).collect(Collectors.toList());
+                )).collect(Collectors.toList());}
+    public List<Object> findPobediVoGradOsnovan(Integer idTim) {
+        return this.timoviRepository.pobediVoGradOsnovan(idTim);
+    }
+
+    @Override
+    public List<Object> findNajdobraFazaForIgrach(Integer idIgrach) {
+        return this.timoviRepository.findNajdobraFazaForIgrach(idIgrach);
+    }
+
+    @Override
+    public List<Object> findAllPobedniciFromKategory(Integer idKategorija) {
+        return this.timoviRepository.findAllPobedniciFromKategory(idKategorija);
     }
 }

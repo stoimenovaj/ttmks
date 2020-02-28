@@ -6,6 +6,7 @@ import com.bazi.ttmk.model.dto.IgrachMechevi;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -114,4 +115,55 @@ public interface TimoviRepository extends JpaRepository<Tim,Integer> {
                     ") as i on i.tim=p.tim "
             , nativeQuery = true)
     List<Object> findTimStats(Integer idTim);
+
+    @Query(value =
+            "select count(*) as pobedi from " +
+                    "( " +
+                    "select " +
+                    "case " +
+                    "when n.dobieni_mechevi_domakjin > n.dobieni_mechevi_gostin then id_tim_domakjin " +
+                    "when n.dobieni_mechevi_domakjin < n.dobieni_mechevi_gostin then id_tim_gostin " +
+                    "end as pobednik_tim, id_sala " +
+                    "from project.natprevari as n " +
+                    ") as pob " +
+                    "where pob.pobednik_tim=?1 and id_sala in ( " +
+                    "select sl.id_sala from project.timovi as t " +
+                    "inner join project.gradovi as gr on t.id_grad=gr.id_grad " +
+                    "left join project.sali as sl on sl.id_grad=gr.id_grad " +
+                    "where t.id_tim=?1 " +
+                    ")"
+            , nativeQuery = true)
+    List<Object> pobediVoGradOsnovan(Integer idTim);
+
+    @Query(value =
+            "select t.ime_turnir, f.opis_faza from project.fazi as f " +
+                    "inner join ( " +
+                    "select min(f.broj_faza) as min_faza, m.faza_id_turnir as turnir, m.faza_id_kategorija as kategorija from project.mechevi as m " +
+                    "inner join project.fazi as f on m.faza_reden_broj=f.reden_broj " +
+                    "where (m.id_lice_igrach_domakjin=?1 or m.id_lice_igrach_gostin=?1) and m.faza_id_turnir is not null " +
+                    "group by m.faza_id_turnir, m.faza_id_kategorija " +
+                    ") as subq on f.broj_faza=subq.min_faza and f.id_kategorija=subq.kategorija and f.id_turnir=subq.turnir " +
+                    "inner join project.turniri as t on subq.turnir=t.id_turnir and subq.kategorija=t.id_kategorija "
+            , nativeQuery = true)
+    List<Object> findNajdobraFazaForIgrach(Integer idIgrach);
+
+    @Query(value =
+            "select ime_turnir, impb.ime_lice as ime_pobednik, impb.prezime_lice as prezime_pobednik " +
+                    "from project.turniri as t " +
+                    "inner join ( " +
+                    "select rl.prezime_lice, rl.ime_lice, pobednici_subq.faza_id_turnir, pobednici_subq.kat from project.registrirani_lica as rl " +
+                    "inner join " +
+                    "( " +
+                    "select " +
+                    "case " +
+                    "when m.dobieni_setovi_domakjin > m.dobieni_setovi_gostin then id_lice_igrach_domakjin " +
+                    "when m.dobieni_setovi_domakjin < m.dobieni_setovi_gostin then id_lice_igrach_gostin " +
+                    "end as pobednik_igrach, m.faza_id_turnir, m.faza_id_kategorija as kat " +
+                    "from project.mechevi as m " +
+                    "inner join project.fazi as f on f.id_kategorija=m.faza_id_kategorija and f.id_turnir=m.faza_id_turnir and f.reden_broj=m.faza_reden_broj " +
+                    "where m.faza_id_kategorija=?1 and f.broj_faza=?1 " +
+                    ") as pobednici_subq on rl.id_lice=pobednici_subq.pobednik_igrach " +
+                    ") as impb on t.id_turnir=impb.faza_id_turnir and t.id_kategorija=impb.kat "
+            , nativeQuery = true)
+    List<Object> findAllPobedniciFromKategory(Integer idKategorija);
 }

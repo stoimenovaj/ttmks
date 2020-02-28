@@ -3,6 +3,7 @@ package com.bazi.ttmk.service;
 import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
 import com.bazi.ttmk.model.dto.IgrachDTO;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -19,4 +20,10 @@ public interface TimoviService {
     List<Object> findStatsForTim(Integer idTim);
 
     List<IgrachDTO> findIgrachiFromTim(int idTim);
+    
+    List<Object> findPobediVoGradOsnovan(Integer idTim);
+
+    List<Object> findNajdobraFazaForIgrach(Integer idIgrach);
+
+    List<Object> findAllPobedniciFromKategory(Integer idKategorija);
 }

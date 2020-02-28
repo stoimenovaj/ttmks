@@ -68,4 +68,18 @@ public class TimoviController {
         return this.timoviService.findIgrachiFromTim(idTim);
     }
 
+    @GetMapping(path = "/{idTim}/tim-domakjin")
+    List<Object> pobediVoGradOsnovan(@PathVariable Integer idTim){
+        return this.timoviService.findPobediVoGradOsnovan(idTim);
+    }
+
+    @GetMapping(path = "/{idIgrach}/najdobra-faza")
+    List<Object> najdobraFazaZaIgrach(@PathVariable Integer idIgrach){
+        return this.timoviService.findNajdobraFazaForIgrach(idIgrach);
+    }
+
+    @GetMapping(path = "/{idKategorija}/pobednici-turniri")
+    List<Object> getPobedniciFromKategorija(@PathVariable Integer idKategorija){
+        return this.timoviService.findAllPobedniciFromKategory(idKategorija);
+    }
 }

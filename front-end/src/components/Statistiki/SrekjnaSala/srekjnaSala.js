@@ -31,7 +31,6 @@ class SrekjnaSala extends React.Component {
                 <div className="bg-dark">
                     <Sala showSali={this.state.sali} ima={this.state.ima}/>
                 </div>
-
             </div>
         );
     }

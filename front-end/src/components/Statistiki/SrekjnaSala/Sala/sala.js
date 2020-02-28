@@ -2,8 +2,6 @@ import React from 'react';
 
 const Sala = (props) => {
 
-    console.log(props.showSali);
-
     if (props.ima === -1) return <span />
     else if (props.showSali.length <= 0) return <div className="mt-5 text-center"
                                                      style={{opacity: ".9", maxHeight: "80vh", overflow: "auto"}}>
@@ -20,7 +18,7 @@ const Sala = (props) => {
 
     return (
         <div className="mt-5 text-center"
-             style={{opacity: ".9", maxHeight: "80vh", overflow: "auto"}}>
+             style={{opacity: ".9", maxHeight: "80vh"}}>
             {saliHtml}
         </div>
     );

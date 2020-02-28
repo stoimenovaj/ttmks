@@ -11,6 +11,7 @@ import {withRouter} from "react-router";
 import Timovi from "../Timovi/timovi";
 import Natprevari from "../Natprevari/natprevari";
 import CreateNatprevar from "../CreateNatprevar/createNatprevar";
+import Statistiki from "../Statistiki/statistiki";
 
 class App extends React.Component {
 
@@ -82,6 +83,9 @@ class App extends React.Component {
                         </Route>
                         <Route path={"/login"} exact>
                             <Login onLogin={this.handleLogin} getUser={this.loadCurrentUser} {...this.props}/>
+                        </Route>
+                        <Route path={"/statistiki"}>
+                            <Statistiki />
                         </Route>
                         <Route path={"/create-natprevar"}>
                             <CreateNatprevar/>

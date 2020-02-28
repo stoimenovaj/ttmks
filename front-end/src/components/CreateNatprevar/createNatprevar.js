@@ -5,7 +5,7 @@ import Ligi from "../../service/ligiService";
 import Sali from "../../service/saliService";
 import Gradovi from "../../service/gradoviService";
 import Dropdown from "react-bootstrap/Dropdown";
-import {CustomMenu, CustomToggle} from "./Zapisnik/CustomDropdown/customDropdown";
+import {CustomMenu, CustomToggle} from "./CustomDropdown/customDropdown";
 
 class CreateNatprevar extends Component {
 

@@ -1,5 +1,6 @@
 package com.bazi.ttmk.service;
 
+import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface TimoviService {
     Tim createTim(Integer idGrad, String imeTim, Integer godinaOsnovan, String kontaktEmail, String kontaktLice, String kontaktTelefon);
 
     List<Object> findIgrachiMechevi(Integer idTim, Integer idSezona, Integer idLiga);
+
+    List<Object> findSrekjniSali(Integer idTim);
 }

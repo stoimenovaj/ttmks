@@ -48,6 +48,7 @@ const Header = (props) => {
                     <li className="nav-item"><Link className="nav-link" to={"/turniri"}>Турнири</Link></li>
                     <li className="nav-item"><Link className="nav-link" to={"/natprevari"}>Натпревари</Link></li>
                     <li className="nav-item"><Link className="nav-link" to={"/timovi"}>Тимови</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to={"/statistiki"}>Статистики</Link></li>
                     <li className="nav-item"><Link className="nav-link" to={"/create-natprevar"}>Внеси натпревар</Link></li>
                 </ul>
                 {items}

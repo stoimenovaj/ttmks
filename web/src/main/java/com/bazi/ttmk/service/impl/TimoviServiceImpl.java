@@ -1,6 +1,7 @@
 package com.bazi.ttmk.service.impl;
 
 import com.bazi.ttmk.model.Grad;
+import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
 import com.bazi.ttmk.repository.GradoviRepository;
 import com.bazi.ttmk.repository.TimoviRepository;
@@ -42,5 +43,10 @@ public class TimoviServiceImpl implements TimoviService {
     @Override
     public List<Object> findIgrachiMechevi(Integer idTim, Integer idSezona, Integer idLiga) {
         return this.timoviRepository.findCrazyQuery(idTim, idSezona, idLiga);
+    }
+
+    @Override
+    public List<Object> findSrekjniSali(Integer idTim) {
+        return this.timoviRepository.findSrekjniSali(idTim);
     }
 }

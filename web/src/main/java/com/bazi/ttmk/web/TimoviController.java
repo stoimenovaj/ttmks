@@ -1,5 +1,6 @@
 package com.bazi.ttmk.web;
 
+import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
 import com.bazi.ttmk.model.dto.IgrachMechevi;
 import com.bazi.ttmk.service.TimoviService;
@@ -40,6 +41,11 @@ public class TimoviController {
             @RequestParam Integer idSezona,
             @RequestParam Integer idLiga){
         return this.timoviService.findIgrachiMechevi(idTim, idSezona, idLiga);
+    }
+
+    @GetMapping(path = "/{idTim}/srekjna-sala")
+    List<Object> getSrekjniSaliForTeam(@PathVariable Integer idTim){
+        return this.timoviService.findSrekjniSali(idTim);
     }
 
 }

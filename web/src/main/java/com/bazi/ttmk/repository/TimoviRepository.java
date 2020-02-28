@@ -1,5 +1,6 @@
 package com.bazi.ttmk.repository;
 
+import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
 import com.bazi.ttmk.model.dto.IgrachMechevi;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -43,4 +44,39 @@ public interface TimoviRepository extends JpaRepository<Tim,Integer> {
                     "order by broj_mechevi desc"
             , nativeQuery = true)
     List<Object> findCrazyQuery(Integer idTim, Integer idSezona, Integer idLiga);
+
+    @Query(value =
+            "select s.ime_sala, g.ime_grad, broenje.pobedi from ( " +
+                    "select count(*) as pobedi, s.id_sala from project.sali as s " +
+                    "inner join ( " +
+                    "select  " +
+                    "case  " +
+                    "when n.dobieni_mechevi_domakjin > n.dobieni_mechevi_gostin then n.id_tim_domakjin " +
+                    "when n.dobieni_mechevi_domakjin < n.dobieni_mechevi_gostin then n.id_tim_gostin " +
+                    "end as pobednik_tim, n.id_sala " +
+                    "from project.natprevari as n" +
+                    ") as pobednici on s.id_sala=pobednici.id_sala " +
+                    "where pobednici.pobednik_tim=?1 " +
+                    "group by s.id_sala " +
+                    ") as broenje " +
+                    "inner join project.sali as s on s.id_sala=broenje.id_sala " +
+                    "inner join project.gradovi as g on g.id_grad=s.id_grad " +
+                    "where broenje.pobedi = ( " +
+                    "select max(broenje.pobedi) from project.sali as s " +
+                    "inner join (\n" +
+                    "select count(*) as pobedi, s.id_sala from project.sali as s " +
+                    "inner join ( " +
+                    "select " +
+                    "case " +
+                    "when n.dobieni_mechevi_domakjin > n.dobieni_mechevi_gostin then n.id_tim_domakjin " +
+                    "when n.dobieni_mechevi_domakjin < n.dobieni_mechevi_gostin then n.id_tim_gostin " +
+                    "end as pobednik_tim, n.id_sala " +
+                    "from project.natprevari as n " +
+                    ") as pobednici on s.id_sala=pobednici.id_sala " +
+                    "where pobednici.pobednik_tim=?1 " +
+                    "group by s.id_sala " +
+                    "\t) as broenje on s.id_sala=broenje.id_sala " +
+                    ") "
+            ,nativeQuery = true)
+    List<Object> findSrekjniSali(Integer idTim);
 }

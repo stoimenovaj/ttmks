@@ -1,5 +1,5 @@
 import React from 'react';
-import Mech from "../Mech/mech";
+import Mech from "./Mech/mech";
 
 const Zapisnik = (props) => {
 

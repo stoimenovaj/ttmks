@@ -3,10 +3,11 @@
 import * as React from "react";
 import {useState} from "react";
 import FormControl from "react-bootstrap/FormControl";
-export const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+export const CustomToggle = React.forwardRef(({ children, onClick, disabled }, ref) => (
     <button
         className={"btn btn-light btn-block"}
         ref={ref}
+        disabled={disabled}
         onClick={e => {
             e.preventDefault();
             onClick(e);

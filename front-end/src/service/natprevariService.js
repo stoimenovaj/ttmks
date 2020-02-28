@@ -9,6 +9,10 @@ const Natprevari = {
 
     gettopLista(idSezona, idLiga){
         return apiUtils.get(`/ligi/top-lista?idSezona=` + idSezona + `&idLiga=` + idLiga);
+    },
+
+    createNatprevar(natprevar){
+        return apiUtils.post("/natprevari", natprevar);
     }
 
 };

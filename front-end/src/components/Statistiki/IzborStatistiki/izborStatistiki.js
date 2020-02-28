@@ -16,6 +16,10 @@ const IzborStatistiki = (props) => {
                 <Link to={"/statistiki/srekjna-sala"}>Среќна сала</Link>
                 <hr/>
                 <Link to={"/statistiki/tim-natprevari-stats"}>Статистики за тим</Link>
+                <hr />
+                <Link to={"/statistiki/tim-domakjin"}>Одиграни натпревари во градот на основање</Link>
+                <hr />
+                <Link to={"/statistiki/najdobra-faza"}>Најголем успех на турнир за играч</Link>
             </div>
         </div>
     );

@@ -9,6 +9,14 @@ const Stats = {
 
     statsNatprevariZaTim: (idTim) => {
         return apiUtils.get("/timovi/"+idTim+"/tim-natprevari-stats");
+    },
+
+    pobediVoGradOsnovan: (idTim) => {
+        return apiUtils.get("/timovi/"+idTim+"/tim-domakjin");
+    },
+
+    najdobraFazaZaIgrach: (idIgrach) => {
+        return apiUtils.get("/timovi/"+idIgrach+"/najdobra-faza");
     }
 
 };

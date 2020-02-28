@@ -53,4 +53,14 @@ public class TimoviController {
         return this.timoviService.findStatsForTim(idTim);
     }
 
+    @GetMapping(path = "/{idTim}/tim-domakjin")
+    List<Object> pobediVoGradOsnovan(@PathVariable Integer idTim){
+        return this.timoviService.findPobediVoGradOsnovan(idTim);
+    }
+
+    @GetMapping(path = "/{idIgrach}/najdobra-faza")
+    List<Object> najdobraFazaZaIgrach(@PathVariable Integer idIgrach){
+        return this.timoviService.findNajdobraFazaForIgrach(idIgrach);
+    }
+
 }

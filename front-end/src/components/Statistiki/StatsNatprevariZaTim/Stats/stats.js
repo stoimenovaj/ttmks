@@ -2,7 +2,7 @@ import React from 'react';
 
 const Stats = (props) => {
 
-    if (props.ima === -1) return <span />
+    if (props.ima === -1) return <span />;
 
     let statsHtml = props.timStats.map((st, index) => {
         return <h1 className="display-4 text-white">

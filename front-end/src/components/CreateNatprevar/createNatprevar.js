@@ -4,6 +4,8 @@ import Turniri from "../../service/turniriService";
 import Ligi from "../../service/ligiService";
 import Sali from "../../service/saliService";
 import Gradovi from "../../service/gradoviService";
+import Dropdown from "react-bootstrap/Dropdown";
+import {CustomMenu, CustomToggle} from "./Zapisnik/CustomDropdown/customDropdown";
 
 class CreateNatprevar extends Component {
 
@@ -12,12 +14,12 @@ class CreateNatprevar extends Component {
 
         this.state = {
             showZapisnik: false,
-            generalInfo: false // da se klade na site kontroli
+            generalInfo: false, // da se klade na site kontroli
+            sezoni: []
         }
 
     }
 
-    // stavo go na onClick={this.prodolzi} ms 
     prodolzi = () => {
 
         // validacii
@@ -28,11 +30,38 @@ class CreateNatprevar extends Component {
 
     };
 
+    componentDidMount() {
+
+        Turniri.getAllSezoni().then(response => {
+            this.setState({
+                sezoni: response.data
+            });
+        }).catch();
+
+    }
+
+    sezoniDropdown = () => {
+        return <Dropdown>
+            <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+                Избери сезона
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu as={CustomMenu}>
+                <Dropdown.Item eventKey="1">Red</Dropdown.Item>
+                <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
+                <Dropdown.Item eventKey="3" active>
+                    Orange
+                </Dropdown.Item>
+                <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
+    };
+
     render() {
 
         // sezoni
 
-        //Turniri.getAllSezoni().then().catch();
+        //
 
         // site ligi (od sezonata)
 
@@ -51,7 +80,6 @@ class CreateNatprevar extends Component {
         //Gradovi.getAllGradovi().then().catch();
 
 
-
         let zapisnik = null;
         if(this.state.showZapisnik)
             zapisnik = <Zapisnik mechevi={[]}/>;
@@ -66,7 +94,7 @@ class CreateNatprevar extends Component {
                     <div className="col-sm-3" />
                     <div className="col-sm-6 text-center">
                         Сезона:
-                        <input className="form-control text-center" type="text" placeholder="asdf"/>
+                        {this.sezoniDropdown()}
                         Лига:
                         <input className="form-control text-center" type="text" placeholder="asdf"/>
                         Град:
@@ -92,7 +120,7 @@ class CreateNatprevar extends Component {
                 <div className="row">
                     <div className="col-sm-3"/>
                     <div className="col-sm-6">
-                        <button className="btn btn-primary text-white btn-block">Продолжи</button>
+                        <button className="btn btn-primary text-white btn-block" onClick={this.prodolzi}>Продолжи</button>
                     </div>
                 </div>
                 <br/><br/>

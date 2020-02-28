@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Zapisnik from "./Zapisnik/zapisnik";
 import GeneralDataNatprevar from "./GenralDataNatprevar/generalDataNatprevar";
-import {CustomMenu, CustomToggle} from "./CustomDropdown/customDropdown";
+import TimoviService from "../../service/timoviService";
 
 class CreateNatprevar extends Component {
 
@@ -10,30 +10,67 @@ class CreateNatprevar extends Component {
 
         this.state = {
             showZapisnik: false,
-            domakjinId: -1,
-            gostinId: -1,
-            natprevarId: -1
+            domakjini: [],
+            gosti: [],
+            natprevarId: -1,
+            mechevi: []
         }
 
     }
 
-    showZapisnik = (domakjinId, gostinId, natprevarId) => {
+    showZapisnik = (domakjinId, gostinId, natprevarId=-1) => {
+
+        // get igrachi of timovi
+
+        TimoviService.getIgrachiFromTim(domakjinId)
+            .then(response => {
+                this.setState({
+                    domakjini: response.data
+                })
+            });
+
+        TimoviService.getIgrachiFromTim(gostinId)
+            .then(response => {
+                this.setState({
+                    gosti: response.data
+                })
+            });
+
         this.setState({
             showZapisnik: true,
-            domakjinId: domakjinId,
-            gostinId: gostinId,
             natprevarId: natprevarId
         });
+    };
+
+    addMech = (mech) => {
+        this.setState((prevState) => {
+            return {
+                mechevi: [...prevState.mechevi, mech]
+            }
+        });
+    };
+
+    send = () => {
+        // validacii
+
+
+        // sent to API
+
+
     };
 
     render() {
 
         let zapisnik = null;
         if(this.state.showZapisnik)
-            zapisnik = <Zapisnik mechevi={[]}/>;
+            zapisnik = <Zapisnik mechevi={this.state.mechevi}
+                                 domakjini={this.state.domakjini}
+                                 gosti={this.state.gosti}
+                                 addMech={this.addMech}
+                                 sendMechevi={this.send}/>;
 
         return (
-            <div className="container bg-dark text-primary text-left pt-5 pb-5" style={{opacity: ".9"}}>
+            <div className="container-fluid bg-dark text-primary text-left pt-5 pb-5" style={{opacity: ".9"}}>
                 <h1 className="text-center">ЗАПИСНИК</h1>
                 <hr/>
                 <GeneralDataNatprevar showZapisnik={this.showZapisnik} disable={this.state.showZapisnik}/>

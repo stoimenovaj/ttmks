@@ -2,6 +2,7 @@ package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Mech;
 import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
+import com.bazi.ttmk.model.dto.MechRequest;
 import com.bazi.ttmk.service.MecheviService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -23,16 +24,16 @@ public class MecheviController {
         return this.mecheviService.getAllMechevi();
     }
 
-    @PostMapping(path="/natprevar")
-    //@PreAuthorize("hasRole('ROLE_MANAGER')")
-    public Mech createNatprevarMech(Integer idDomakjin ,
-                           Integer idGostin,
-                           Integer dobieniSetoviDomakjin,
-                           Integer dobieniSetoviGostin,
-                           Integer idSudija,
-                           Integer idNatprevar){
-        return this.mecheviService.createMechForNatprevar(idDomakjin,idGostin,dobieniSetoviDomakjin,dobieniSetoviGostin,idSudija,idNatprevar);
-    }
+//    @PostMapping(path="/natprevar")
+//    //@PreAuthorize("hasRole('ROLE_MANAGER')")
+//    public Mech createNatprevarMech(Integer idDomakjin ,
+//                           Integer idGostin,
+//                           Integer dobieniSetoviDomakjin,
+//                           Integer dobieniSetoviGostin,
+//                           Integer idSudija,
+//                           Integer idNatprevar){
+//        return this.mecheviService.createMechForNatprevar(idDomakjin,idGostin,dobieniSetoviDomakjin,dobieniSetoviGostin,idSudija,idNatprevar);
+//    }
 
     @PostMapping(path="/turnir")
     //@PreAuthorize("hasRole('ROLE_MANAGER')")
@@ -53,6 +54,11 @@ public class MecheviController {
                                              @RequestParam Integer brFaza,
                                              @RequestParam Integer idIgrach){
         return mecheviService.getProtivnik(idTurnir, idKategorija, brFaza, idIgrach);
+    }
+
+    @PostMapping
+    public Mech createMech(@RequestBody MechRequest request){
+        return null;
     }
 
 }

@@ -1,9 +1,7 @@
 package com.bazi.ttmk.web;
 
-import com.bazi.ttmk.model.Igrach;
 import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
-import com.bazi.ttmk.model.dto.IgrachDTO;
 import com.bazi.ttmk.model.dto.IgrachMechevi;
 import com.bazi.ttmk.model.dto.TimDTO;
 import com.bazi.ttmk.service.TimoviService;
@@ -47,25 +45,21 @@ public class TimoviController {
         return this.timoviService.findIgrachiMechevi(idTim, idSezona, idLiga);
     }
 
+<<<<<<< HEAD
     @GetMapping(path = "/{idTim}/srekjna-sala")
     List<Object> getSrekjniSaliForTeam(@PathVariable Integer idTim){
         return this.timoviService.findSrekjniSali(idTim);
-    }
-    
-    @GetMapping(path = "/dto")
-    public List<TimDTO> getAllTimoviDTO() {
-        return this.timoviService.getAllTimovi().stream().map(tim -> new TimDTO(tim.getIdTim(), tim.getImeTim()))
-                .collect(Collectors.toList());
     }
 
     @GetMapping(path = "/{idTim}/tim-natprevari-stats")
     List<Object> getTimNatprevariStats(@PathVariable Integer idTim){
         return this.timoviService.findStatsForTim(idTim);
-    }
-
-    @GetMapping(path = "/{idTim}/current-igrachi")
-    public List<IgrachDTO> getIgrachiFromTim(@PathVariable int idTim){
-        return this.timoviService.findIgrachiFromTim(idTim);
+=======
+    @GetMapping(path = "/dto")
+    public List<TimDTO> getAllTimoviDTO(){
+        return this.timoviService.getAllTimovi().stream().map(tim -> new TimDTO(tim.getIdTim(), tim.getImeTim()))
+                .collect(Collectors.toList());
+>>>>>>> Finish component for receiving initial data for creating natprevar
     }
 
 }

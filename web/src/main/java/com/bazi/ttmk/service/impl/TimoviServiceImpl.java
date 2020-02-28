@@ -3,12 +3,14 @@ package com.bazi.ttmk.service.impl;
 import com.bazi.ttmk.model.Grad;
 import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
+import com.bazi.ttmk.model.dto.IgrachDTO;
 import com.bazi.ttmk.repository.GradoviRepository;
 import com.bazi.ttmk.repository.TimoviRepository;
 import com.bazi.ttmk.service.TimoviService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TimoviServiceImpl implements TimoviService {
@@ -53,5 +55,18 @@ public class TimoviServiceImpl implements TimoviService {
     @Override
     public List<Object> findStatsForTim(Integer idTim) {
         return this.timoviRepository.findTimStats(idTim);
+    }
+
+    @Override
+    public List<IgrachDTO> findIgrachiFromTim(int idTim) {
+        return this.timoviRepository.findById(idTim)
+                .orElseThrow(() -> new RuntimeException("Timot with id " + idTim + " not found"))
+                .getIgrachi()
+                .stream()
+                .map(igr -> new IgrachDTO(
+                        igr.getIdLice(),
+                        igr.getLice().getImeLice(),
+                        igr.getLice().getPrezimeLice()
+                )).collect(Collectors.toList());
     }
 }

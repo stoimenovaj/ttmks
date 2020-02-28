@@ -3,15 +3,20 @@ import Mech from "./Mech/mech";
 
 const Zapisnik = (props) => {
 
-    let {howMany} = props;
     let {mechevi} = props;
 
     let mecheviHtml = [];
     for(let i=0; i<mechevi.length; i++){
-        mecheviHtml.push(<Mech mech={mechevi[i]}/>);
+        mecheviHtml.push(<Mech mech={mechevi[i]}
+                               domakjini={props.domakjini}
+                               gosti={props.gosti}
+                               addMech={props.addMech}/>);
     }
 
-    mecheviHtml.push(<Mech mech={null}/>);
+    mecheviHtml.push(<Mech mech={null}
+                           domakjini={props.domakjini}
+                           gosti={props.gosti}
+                           addMech={props.addMech}/>);
 
 
     return (
@@ -44,7 +49,7 @@ const Zapisnik = (props) => {
             <div className="row">
                 <div className="col-sm-11"/>
                 <div className="col-sm text-right">
-                    <button className="btn btn-success btn-block">Внеси</button>
+                    <button className="btn btn-success btn-block" onClick={props.sendMechevi}>Внеси</button>
                 </div>
             </div>
         </div>

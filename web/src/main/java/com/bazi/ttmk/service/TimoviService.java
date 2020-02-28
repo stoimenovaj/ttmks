@@ -2,6 +2,7 @@ package com.bazi.ttmk.service;
 
 import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
+import com.bazi.ttmk.model.dto.IgrachDTO;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface TimoviService {
     List<Object> findSrekjniSali(Integer idTim);
 
     List<Object> findStatsForTim(Integer idTim);
+
+    List<IgrachDTO> findIgrachiFromTim(int idTim);
 }

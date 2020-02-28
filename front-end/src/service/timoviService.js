@@ -10,6 +10,14 @@ const Timovi = {
 
     getAllTimovi: () => {
         return apiUtils.get("/timovi");
+    },
+
+    getAllTimoviDto: () => {
+        return apiUtils.get("/timovi/dto");
+    },
+
+    getIgrachiFromTim: (idTim) => {
+        return apiUtils.get(`/timovi/${idTim}/current-igrachi`);
     }
 
 };

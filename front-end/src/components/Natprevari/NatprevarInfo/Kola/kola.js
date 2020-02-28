@@ -5,7 +5,7 @@ const Kola = (props) => {
 
     const tabeliHtml = props.natprevari.map((kolo, index) => {
         let thead = <thead className="fixed">
-        <tr className=""><td colSpan="7" className=" col-sm-12 text-center" style={{fontSize: "20px"}}>{kolo.kolo}</td></tr>
+        <tr className=""><td colSpan="7" className=" col-sm-12 text-center" style={{fontSize: "20px"}}>{kolo.kolo} КОЛО</td></tr>
         <tr className="text-primary">
             <th>#</th>
             <th>Домаќин</th>
@@ -17,7 +17,7 @@ const Kola = (props) => {
 
         let tbody = kolo.natprevari.map((n, index) => {
             return <tr>
-                <td>{index+1} КОЛО</td>
+                <td>{index+1} </td>
                 <td>{n.imeDomakjin}</td>
                 <td>{n.domakjinMechevi}</td>
                 <td>{n.gostinMechevi}</td>

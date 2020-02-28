@@ -79,4 +79,39 @@ public interface TimoviRepository extends JpaRepository<Tim,Integer> {
                     ") "
             ,nativeQuery = true)
     List<Object> findSrekjniSali(Integer idTim);
+
+    @Query(value =
+            "select odigrani, pobedi, zagubeni from ( " +
+                    "select 1 as tim, count(*) as odigrani from project.timovi as t " +
+                    "inner join project.natprevari as n on t.id_tim=n.id_tim_domakjin or t.id_tim=n.dobieni_mechevi_gostin " +
+                    "where t.id_tim=?1 " +
+                    ") as o " +
+                    "inner join ( " +
+                    "select 1 as tim, sum(stats.pobedi) as pobedi from ( " +
+                    "( " +
+                    "select count(*) as pobedi from project.natprevari as n " +
+                    "where n.id_tim_domakjin=?1 and n.dobieni_mechevi_domakjin > n.dobieni_mechevi_gostin " +
+                    ") " +
+                    "union " +
+                    "( " +
+                    "select count(*) as pobedi from project.natprevari as n " +
+                    "where n.id_tim_gostin=?1 and n.dobieni_mechevi_domakjin < n.dobieni_mechevi_gostin " +
+                    ") " +
+                    ") as stats " +
+                    ") as p on o.tim=p.tim " +
+                    "inner join ( " +
+                    "select 1 as tim, sum(stats.zagubi) as zagubeni from ( " +
+                    "( " +
+                    "select count(*) as zagubi from project.natprevari as n " +
+                    "where n.id_tim_domakjin=?1 and n.dobieni_mechevi_domakjin < n.dobieni_mechevi_gostin " +
+                    ") " +
+                    "union " +
+                    "( " +
+                    "select count(*) as zagubi from project.natprevari as n " +
+                    "where n.id_tim_gostin=?1 and n.dobieni_mechevi_domakjin > n.dobieni_mechevi_gostin " +
+                    ") " +
+                    ") as stats " +
+                    ") as i on i.tim=p.tim "
+            , nativeQuery = true)
+    List<Object> findTimStats(Integer idTim);
 }

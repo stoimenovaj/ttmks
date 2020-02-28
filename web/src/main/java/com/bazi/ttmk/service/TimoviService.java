@@ -14,4 +14,6 @@ public interface TimoviService {
     List<Object> findIgrachiMechevi(Integer idTim, Integer idSezona, Integer idLiga);
 
     List<Object> findSrekjniSali(Integer idTim);
+
+    List<Object> findStatsForTim(Integer idTim);
 }

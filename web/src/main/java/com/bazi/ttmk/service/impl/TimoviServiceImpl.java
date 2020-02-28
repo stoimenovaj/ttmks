@@ -49,4 +49,9 @@ public class TimoviServiceImpl implements TimoviService {
     public List<Object> findSrekjniSali(Integer idTim) {
         return this.timoviRepository.findSrekjniSali(idTim);
     }
+
+    @Override
+    public List<Object> findStatsForTim(Integer idTim) {
+        return this.timoviRepository.findTimStats(idTim);
+    }
 }

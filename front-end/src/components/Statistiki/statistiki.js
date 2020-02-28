@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import IzborStatistiki from "./IzborStatistiki/izborStatistiki";
 import {Route, Switch} from "react-router";
 import SrekjnaSala from "./SrekjnaSala/srekjnaSala";
+import StatsNatprevarZaTim from "./StatsNatprevariZaTim/statsNatprevarZaTim";
 
 class Statistiki extends Component {
     render() {
@@ -12,7 +13,9 @@ class Statistiki extends Component {
                     <Route path={"/statistiki/srekjna-sala"} exact>
                         <SrekjnaSala />
                     </Route>
-
+                    <Route path={"/statistiki/tim-natprevari-stats"} exact>
+                        <StatsNatprevarZaTim />
+                    </Route>
                 </Switch>
             </div>
         );

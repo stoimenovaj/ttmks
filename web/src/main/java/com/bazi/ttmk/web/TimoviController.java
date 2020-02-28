@@ -48,4 +48,9 @@ public class TimoviController {
         return this.timoviService.findSrekjniSali(idTim);
     }
 
+    @GetMapping(path = "/{idTim}/tim-natprevari-stats")
+    List<Object> getTimNatprevariStats(@PathVariable Integer idTim){
+        return this.timoviService.findStatsForTim(idTim);
+    }
+
 }

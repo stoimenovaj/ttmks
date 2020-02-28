@@ -14,6 +14,8 @@ const IzborStatistiki = (props) => {
                  opacity: ".9"}}>
             <div className="bg-light p-3 text-center rounded">
                 <Link to={"/statistiki/srekjna-sala"}>Среќна сала</Link>
+                <hr/>
+                <Link to={"/statistiki/tim-natprevari-stats"}>Статистики за тим</Link>
             </div>
         </div>
     );

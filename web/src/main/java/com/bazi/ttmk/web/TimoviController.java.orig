@@ -1,7 +1,9 @@
 package com.bazi.ttmk.web;
 
+import com.bazi.ttmk.model.Igrach;
 import com.bazi.ttmk.model.Sala;
 import com.bazi.ttmk.model.Tim;
+import com.bazi.ttmk.model.dto.IgrachDTO;
 import com.bazi.ttmk.model.dto.IgrachMechevi;
 import com.bazi.ttmk.model.dto.TimDTO;
 import com.bazi.ttmk.service.TimoviService;
@@ -45,21 +47,42 @@ public class TimoviController {
         return this.timoviService.findIgrachiMechevi(idTim, idSezona, idLiga);
     }
 
-<<<<<<< HEAD
     @GetMapping(path = "/{idTim}/srekjna-sala")
     List<Object> getSrekjniSaliForTeam(@PathVariable Integer idTim){
         return this.timoviService.findSrekjniSali(idTim);
+    }
+    
+    @GetMapping(path = "/dto")
+    public List<TimDTO> getAllTimoviDTO() {
+        return this.timoviService.getAllTimovi().stream().map(tim -> new TimDTO(tim.getIdTim(), tim.getImeTim()))
+                .collect(Collectors.toList());
     }
 
     @GetMapping(path = "/{idTim}/tim-natprevari-stats")
     List<Object> getTimNatprevariStats(@PathVariable Integer idTim){
         return this.timoviService.findStatsForTim(idTim);
-=======
-    @GetMapping(path = "/dto")
-    public List<TimDTO> getAllTimoviDTO(){
-        return this.timoviService.getAllTimovi().stream().map(tim -> new TimDTO(tim.getIdTim(), tim.getImeTim()))
-                .collect(Collectors.toList());
->>>>>>> Finish component for receiving initial data for creating natprevar
     }
 
+<<<<<<< HEAD
+    @GetMapping(path = "/{idTim}/current-igrachi")
+    public List<IgrachDTO> getIgrachiFromTim(@PathVariable int idTim){
+        return this.timoviService.findIgrachiFromTim(idTim);
+    }
+
+=======
+    @GetMapping(path = "/{idTim}/tim-domakjin")
+    List<Object> pobediVoGradOsnovan(@PathVariable Integer idTim){
+        return this.timoviService.findPobediVoGradOsnovan(idTim);
+    }
+
+    @GetMapping(path = "/{idIgrach}/najdobra-faza")
+    List<Object> najdobraFazaZaIgrach(@PathVariable Integer idIgrach){
+        return this.timoviService.findNajdobraFazaForIgrach(idIgrach);
+    }
+
+    @GetMapping(path = "/{idKategorija}/pobednici-turniri")
+    List<Object> getPobedniciFromKategorija(@PathVariable Integer idKategorija){
+        return this.timoviService.findAllPobedniciFromKategory(idKategorija);
+    }
+>>>>>>> f493f1bd3d5616b8251a076e1ca16097793e60f9
 }

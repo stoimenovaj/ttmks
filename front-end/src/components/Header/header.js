@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import mkFlag from '../../images/mkflag.png'
-import {ROLE_ADMIN} from "../../constants";
+import {ROLE_ADMIN, ROLE_MANAGER} from "../../constants";
 import {withRouter} from "react-router";
 
 const Header = (props) => {
@@ -19,6 +19,9 @@ const Header = (props) => {
             items = [
                 <Link className="nav-link" to={"/register"}>Регистрирај лице</Link>
             ];
+        }
+        if(props.currentUser.role === ROLE_MANAGER){
+            items.push(<Link className="nav-link" to={"/create-natprevar"}>Внеси натпревар</Link>);
         }
         items.push(
             <Link className="nav-link" to={"#"} onClick={handleLogout}>Одјава</Link>
@@ -49,7 +52,7 @@ const Header = (props) => {
                     <li className="nav-item"><Link className="nav-link" to={"/natprevari"}>Натпревари</Link></li>
                     <li className="nav-item"><Link className="nav-link" to={"/timovi"}>Тимови</Link></li>
                     <li className="nav-item"><Link className="nav-link" to={"/statistiki"}>Статистики</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to={"/create-natprevar"}>Внеси натпревар</Link></li>
+
                 </ul>
                 {items}
 

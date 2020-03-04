@@ -9,6 +9,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Tim from "./Tim/tim";
 import Timovi from "../../../service/timoviService";
+import Natprevari from "../../../service/natprevariService";
+import bootbox from 'bootbox';
 
 class GeneralDataNatprevar extends Component {
 
@@ -103,66 +105,67 @@ class GeneralDataNatprevar extends Component {
 
         // validacija
 
-        // if(this.state.selectedSezona === -1){
-        //     bootbox.alert('Внесете сезона');
-        //     return;
-        // }
-        //
-        // if(this.state.selectedLiga.idLiga === -1){
-        //     bootbox.alert('Внесете лига');
-        //     return;
-        // }
-        //
-        // if(this.state.selectedSala.idSala === -1){
-        //     bootbox.alert('Внесете сала');
-        //     return;
-        // }
-        //
-        // if(this.state.kolo === -1){
-        //     bootbox.alert('Внесете коло');
-        //     return;
-        // }
-        //
-        // if(this.state.domakjin === -1){
-        //     bootbox.alert('Внесете домаќин тим');
-        //     return;
-        // }
-        //
-        // if(this.state.gostin === -1){
-        //     bootbox.alert('Внесете гостин тим');
-        //     return;
-        // }
-        //
-        // if(this.state.selectedDate >= new Date()){
-        //     bootbox.alert('Внесете валиден датум');
-        //     return;
-        // }
-        //
-        // if(this.state.domakjin === this.state.gostin){
-        //     bootbox.alert('Внесете различни натпреварувачи');
-        //     return;
-        // }
+        if(this.state.selectedSezona === -1){
+            bootbox.alert('Внесете сезона');
+            return;
+        }
 
-        // call to API
+        if(this.state.selectedLiga.idLiga === -1){
+            bootbox.alert('Внесете лига');
+            return;
+        }
 
-        // let natprevar = {
-        //     idSezona: this.state.selectedSezona,
-        //     idLiga: this.state.selectedLiga.idLiga,
-        //     dataOdigran: this.state.selectedDate,
-        //     kolo: this.state.kolo,
-        //     idTimDomakjin: this.state.domakjin,
-        //     idTimGostin: this.state.gostin,
-        //     idSalaOdrzuvanje: this.state.selectedSala.idSala
-        // };
+        if(this.state.selectedSala.idSala === -1){
+            bootbox.alert('Внесете сала');
+            return;
+        }
 
-        // console.log(natprevar);
-        //
-        // Natprevari.createNatprevar(natprevar)
-        //     .then(response => {
-        //         // call parent
-        //     })
-        //     .catch();
-        this.props.showZapisnik(this.state.domakjin, this.state.gostin);
+        if(this.state.kolo === -1){
+            bootbox.alert('Внесете коло');
+            return;
+        }
+
+        if(this.state.domakjin === -1){
+            bootbox.alert('Внесете домаќин тим');
+            return;
+        }
+
+        if(this.state.gostin === -1){
+            bootbox.alert('Внесете гостин тим');
+            return;
+        }
+
+        if(this.state.selectedDate >= new Date()){
+            bootbox.alert('Внесете валиден датум');
+            return;
+        }
+
+        if(this.state.domakjin === this.state.gostin){
+            bootbox.alert('Внесете различни натпреварувачи');
+            return;
+        }
+
+        let natprevar = {
+            idSezona: this.state.selectedSezona,
+            idLiga: this.state.selectedLiga.idLiga,
+            dataOdigran: this.state.selectedDate,
+            kolo: this.state.kolo,
+            idTimDomakjin: this.state.domakjin,
+            idTimGostin: this.state.gostin,
+            idSalaOdrzuvanje: this.state.selectedSala.idSala
+        };
+
+
+        Natprevari.createNatprevar(natprevar)
+            .then(response => {
+                // call parent
+                console.log(response.data);
+                this.props.showZapisnik(this.state.domakjin, this.state.gostin, response.data.idNatprevar);
+            })
+            .catch();
+
+
+
 
     };
 

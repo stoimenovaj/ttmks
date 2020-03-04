@@ -21,7 +21,7 @@ const Zapisnik = (props) => {
 
     return (
         <div>
-            <table id="natprevar_data" className="table table-bordered">
+            <table id="natprevar_data" className="table table-bordered text-white">
                 <thead>
                 <tr>
                     <th colSpan="3" className="text-center">Екипа 1 - Домаќин</th>
@@ -49,7 +49,7 @@ const Zapisnik = (props) => {
             <div className="row">
                 <div className="col-sm-11"/>
                 <div className="col-sm text-right">
-                    <button className="btn btn-success btn-block" onClick={props.sendMechevi}>Внеси</button>
+                    <button className="btn btn-success btn-block" onClick={() => {console.log("dasd"); props.sendMechevi()}}>Внеси</button>
                 </div>
             </div>
         </div>

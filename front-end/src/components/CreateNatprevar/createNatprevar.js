@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Zapisnik from "./Zapisnik/zapisnik";
 import GeneralDataNatprevar from "./GenralDataNatprevar/generalDataNatprevar";
 import TimoviService from "../../service/timoviService";
+import Natprevari from "../../service/natprevariService";
+import {withRouter} from "react-router";
 
 class CreateNatprevar extends Component {
 
@@ -18,7 +20,7 @@ class CreateNatprevar extends Component {
 
     }
 
-    showZapisnik = (domakjinId, gostinId, natprevarId=-1) => {
+    showZapisnik = (domakjinId, gostinId, natprevarId) => {
 
         // get igrachi of timovi
 
@@ -50,13 +52,22 @@ class CreateNatprevar extends Component {
         });
     };
 
-    send = () => {
+    sendMechevi = () => {
+        console.log('here');
         // validacii
 
-
         // sent to API
+        for(let i=0; i<this.state.mechevi.length; i++){
+            console.log(this.state.natprevarId);
+            Natprevari.createMech(this.state.mechevi[i], this.state.natprevarId)
+                .then(response => {
+                    console.log(response.data);
+                }).catch(err => {
+                    console.log("ERRR")
+            })
+        }
 
-
+        this.props.history.push("/turniri");
     };
 
     render() {
@@ -67,7 +78,7 @@ class CreateNatprevar extends Component {
                                  domakjini={this.state.domakjini}
                                  gosti={this.state.gosti}
                                  addMech={this.addMech}
-                                 sendMechevi={this.send}/>;
+                                 sendMechevi={this.sendMechevi}/>;
 
         return (
             <div className="container-fluid bg-dark text-primary text-left pt-5 pb-5" style={{opacity: ".9"}}>
@@ -83,4 +94,4 @@ class CreateNatprevar extends Component {
     }
 }
 
-export default CreateNatprevar;
+export default withRouter(CreateNatprevar);

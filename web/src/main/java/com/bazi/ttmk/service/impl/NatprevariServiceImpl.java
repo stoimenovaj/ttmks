@@ -69,6 +69,6 @@ public class NatprevariServiceImpl implements NatprevariService {
                 request.getIdTimDomakjin(), request.getIdTimGostin(), natprevar);
         natprevar.setKolo(request.getKolo());
         natprevar.setDataOdigran(request.getDataOdigran());
-        return this.natprevariRepository.save(natprevar);
+        return this.natprevariRepository.saveAndFlush(natprevar);
     }
 }

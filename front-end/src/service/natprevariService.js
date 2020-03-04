@@ -7,12 +7,17 @@ const Natprevari = {
         return apiUtils.get(`/ligi/${idLiga}/natprevari?idSezona=`+idSezona);
     },
 
-    gettopLista(idSezona, idLiga){
+    gettopLista: (idSezona, idLiga) => {
         return apiUtils.get(`/ligi/top-lista?idSezona=` + idSezona + `&idLiga=` + idLiga);
     },
 
-    createNatprevar(natprevar){
+    createNatprevar: (natprevar) => {
         return apiUtils.post("/natprevari", natprevar);
+    },
+
+    createMech: (mech, natprevarId) => {
+        mech['natprevarId'] = natprevarId;
+        return apiUtils.post("/mechevi/natprevar", mech);
     }
 
 };

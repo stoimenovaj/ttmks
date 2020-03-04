@@ -56,9 +56,9 @@ public class MecheviController {
         return mecheviService.getProtivnik(idTurnir, idKategorija, brFaza, idIgrach);
     }
 
-    @PostMapping
+    @PostMapping("/natprevar")
     public Mech createMech(@RequestBody MechRequest request){
-        return null;
+        return mecheviService.createMechForNatprevar(request);
     }
 
 }

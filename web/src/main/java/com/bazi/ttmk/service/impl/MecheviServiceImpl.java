@@ -2,6 +2,7 @@ package com.bazi.ttmk.service.impl;
 
 import com.bazi.ttmk.model.*;
 import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
+import com.bazi.ttmk.model.dto.MechRequest;
 import com.bazi.ttmk.repository.*;
 import com.bazi.ttmk.service.MecheviService;
 import org.springframework.stereotype.Service;
@@ -92,6 +93,22 @@ public class MecheviServiceImpl implements MecheviService {
 
         rv.setMore(this.faziRepository.findByIdTurnirAndIdKategorijaAndBrojFaza(idTurnir, idKategorija, brojFaza + 1) != null);
         return rv;
+    }
+
+    @Override
+    public Mech createMechForNatprevar(MechRequest request) {
+        Igrach igrach1 = this.igrachiRepository.findById(request.getDomakjinId()).orElseThrow(() -> new RuntimeException("Player with id"+" not found"));
+        Igrach igrach2 = this.igrachiRepository.findById(request.getGostinId()).orElseThrow(() -> new RuntimeException("Player with id" + " not found"));
+        //Sudija sudija = this.sudiiRepository.findById(1).orElseThrow(() -> new RuntimeException("Sudija with id" + " not found"));
+        Natprevar natprevar = this.natprevariRepository.findById(request.getNatprevarId()).orElseThrow(() -> new RuntimeException("Natprevar with id" + request.getNatprevarId() +  " not found"));
+        Mech mech = new Mech();
+        mech.setDomakjinIgrach(igrach1);
+        mech.setGostinIgrach(igrach2);
+        //mech.setSudija(sudija);
+        mech.setNatprevar(natprevar);
+        mech.setDobieniSetoviDomakjin(request.getDomakjinSetovi());
+        mech.setDobieniSetoviGostin(request.getGostinSetovi());
+        return this.mecheviRepository.save(mech);
     }
 
 }

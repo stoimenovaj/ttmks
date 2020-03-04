@@ -6,6 +6,7 @@ import com.bazi.ttmk.model.dto.IgrachiInTurnirMech;
 import com.bazi.ttmk.service.FaziService;
 import com.bazi.ttmk.service.TurniriService;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -34,7 +35,7 @@ public class TurniriController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_MANAGER')")
+    @PreAuthorize("hasRole('ROLE_MANAGER')")
     public Turnir createTurnir(int idSezona,
                                int idKategorija,
                                String ime,

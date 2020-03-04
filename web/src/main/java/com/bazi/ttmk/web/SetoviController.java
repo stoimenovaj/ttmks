@@ -23,7 +23,7 @@ public class SetoviController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_MANAGER')")
+    @PreAuthorize("hasRole('ROLE_MANAGER')")
     public Set createSet(Integer idMech,
                          Integer poeniDomakjin,
                          Integer poeniGostin){

@@ -23,7 +23,7 @@ public class SudiiController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Sudija createSudija(Integer idLice,
                                String titula) {
         return this.sudiiService.createSudija(idLice, titula);

@@ -25,7 +25,7 @@ public class IgrachiController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Igrach createIgrach(Integer idLice,
                                String opisNaReket,
                                @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date posledenLekarskiPregled,

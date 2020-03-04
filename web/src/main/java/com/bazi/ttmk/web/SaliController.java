@@ -23,7 +23,7 @@ public class SaliController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_MANAGER')")
+    @PreAuthorize("hasRole('ROLE_MANAGER')")
     public Sala createSala(String imeSala,
                            Integer idGrad) {
         return this.saliService.createSala(imeSala, idGrad);

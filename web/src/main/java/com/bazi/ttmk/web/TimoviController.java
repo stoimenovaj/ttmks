@@ -29,7 +29,7 @@ public class TimoviController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Tim creatTim(Integer idGrad,
                         String imeTim,
                         Integer godinaOsnovan,

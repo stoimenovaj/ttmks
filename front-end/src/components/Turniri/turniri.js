@@ -2,7 +2,6 @@ import React from "react";
 import Sezoni from "./Sezoni/sezoni";
 import Turnir from "./Turnir/turnir";
 import TurniriService from "../../service/turniriService";
-import {generateGracketMech, getPrevMech, noMoreFazi} from "../../util/gracketUtils";
 
 
 

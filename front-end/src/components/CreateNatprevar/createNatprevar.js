@@ -53,8 +53,9 @@ class CreateNatprevar extends Component {
     };
 
     sendMechevi = () => {
-        console.log('here');
         // validacii
+
+
 
         // sent to API
         for(let i=0; i<this.state.mechevi.length; i++){
@@ -63,7 +64,6 @@ class CreateNatprevar extends Component {
                 .then(response => {
                     console.log(response.data);
                 }).catch(err => {
-                    console.log("ERRR")
             })
         }
 

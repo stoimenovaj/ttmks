@@ -94,7 +94,6 @@ class GeneralDataNatprevar extends Component {
     componentDidMount() {
         Timovi.getAllTimoviDto()
             .then(response => {
-                console.log(response.data);
                 this.setState({
                     timovi: response.data
                 });
@@ -158,14 +157,9 @@ class GeneralDataNatprevar extends Component {
 
         Natprevari.createNatprevar(natprevar)
             .then(response => {
-                // call parent
-                console.log(response.data);
                 this.props.showZapisnik(this.state.domakjin, this.state.gostin, response.data.idNatprevar);
             })
             .catch();
-
-
-
 
     };
 

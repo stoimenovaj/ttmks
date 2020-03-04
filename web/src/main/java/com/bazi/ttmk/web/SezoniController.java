@@ -6,6 +6,7 @@ import com.bazi.ttmk.model.Turnir;
 import com.bazi.ttmk.model.dto.LigiWithTimovi;
 import com.bazi.ttmk.service.SezoniService;
 import com.bazi.ttmk.service.TurniriService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class SezoniController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Sezona createSezona(String godina
             , String pretsedatel) {
         return this.sezoniService.createSezona(godina, pretsedatel);

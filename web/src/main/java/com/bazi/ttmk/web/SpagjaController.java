@@ -2,6 +2,7 @@ package com.bazi.ttmk.web;
 
 import com.bazi.ttmk.model.Spagja;
 import com.bazi.ttmk.service.SpagjaService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class SpagjaController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_MANAGER')")
     public Spagja createSpagja(Integer idSezona,
                                Integer idLiga,
                                Integer idTim,

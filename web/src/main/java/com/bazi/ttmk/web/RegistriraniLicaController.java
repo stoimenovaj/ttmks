@@ -24,7 +24,7 @@ public class RegistriraniLicaController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public RegistriranoLice createRegistriranoLice(String imeLice,
                                                    String prezimeLice,
                                                    int godiniLice,

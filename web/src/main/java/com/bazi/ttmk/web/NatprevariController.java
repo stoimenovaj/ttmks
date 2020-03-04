@@ -45,6 +45,7 @@ public class NatprevariController {
 //    }
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_MANAGER')")
     public Natprevar createNatprevar(@RequestBody NatprevarRequest request){
         return this.natprevariService.createNatprevar(request);
     }

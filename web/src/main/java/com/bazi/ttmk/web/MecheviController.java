@@ -36,7 +36,7 @@ public class MecheviController {
 //    }
 
     @PostMapping(path="/turnir")
-    //@PreAuthorize("hasRole('ROLE_MANAGER')")
+    @PreAuthorize("hasRole('ROLE_MANAGER')")
     public Mech createMechForTurnir(Integer idTurnir,
                                     Integer idKategorija,
                                     Integer fazaRedenBroj,
@@ -57,6 +57,7 @@ public class MecheviController {
     }
 
     @PostMapping("/natprevar")
+    @PreAuthorize("hasRole('ROLE_MANAGER')")
     public Mech createMech(@RequestBody MechRequest request){
         return mecheviService.createMechForNatprevar(request);
     }

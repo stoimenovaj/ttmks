@@ -29,7 +29,7 @@ public class LigiController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Liga createLiga(int idSezona,
                            String imeLiga){
         return this.ligiService.createLiga(idSezona,imeLiga);

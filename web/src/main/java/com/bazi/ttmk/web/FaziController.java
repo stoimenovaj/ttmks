@@ -25,7 +25,7 @@ public class FaziController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_MANAGER')")
+    @PreAuthorize("hasRole('ROLE_MANAGER')")
     public Faza createFaza(int idTurnir,
                            int idKategorija,
                            String opisFaza,

@@ -23,7 +23,7 @@ public class GradoviController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Grad createGrad(String imeGrad){
         return this.gradoviService.createGrad(imeGrad);
     }

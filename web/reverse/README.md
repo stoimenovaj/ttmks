@@ -6,6 +6,7 @@ Based on this [tutorial](https://eugencovaciq.wordpress.com/2016/02/01/hibernate
 
 You need to have `Apache Maven` installed and setup so that it is in your system PATH and can be called with just "mvn" from the command line.
 
+---
 #### Step 1. Open `hibernate.cfg.xml` and setup for access to your database
 - Check hibernate documentation for help
 
@@ -29,6 +30,7 @@ You need to have `Apache Maven` installed and setup so that it is in your system
 - If you need custom naming patterns for the java classes, java properties or methods, you will need to modify the customized Reverse Strategy. Please see the tutorial and hibernate docs for this.
 - If you have changed too many configurations, it is better to remove the previous source files before going back to Step 4 to generate again.
 
+---
 If you are satisfied with the generated source files for the model mapping of Entity classes via Hibernate ORM, you can proceed to build you application directly here.
 
 The generated source files do not have a mapping "schema" defined. So if you want to have your tables in the database in a specific schema, you will have to add that to the `@Table` annotation. This can be done easily on linux with the following one-line command.

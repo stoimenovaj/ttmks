@@ -3,6 +3,7 @@
 
 RESTfull web service app built with Spring Boot. It "wraps" the database and exposes its data to clients through HTTP.
 
+---
 #### Characteristics
 - Layered architecture
     - Repository, Service, Web

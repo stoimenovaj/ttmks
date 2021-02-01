@@ -1,7 +1,9 @@
-## Project phases
+## Database
+### PostgreSQL
 
 The project is divided in five phases, each phase with its own requirements (`phase <i>/README.md`)(mk). The phases are meant to help build the project incrementally.
 
+#### Phases
 ##### Phase one (`phase 1/`)
 - The goal of the first phase is to define the project data requirements and design the database schema (conceptual design) with the help of an ER diagram.
 ##### Phase two (`phase 2/`)

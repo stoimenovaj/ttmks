@@ -1,4 +1,4 @@
-## Phase 4: Advanced database reports (SQL and Stored procedures)
+## Phase 4: Advanced database reports (SQL and SQL Views)
 
 Во рамките на оваа задача е потребно да се обмислат по **2 покомплексни аналитички пресметки за секој член на тимот** и да се изведат со SQL.
 

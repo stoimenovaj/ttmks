@@ -1,4 +1,4 @@
-## Phase 3: Application Design - Use-cases and Database Access Scenarios - SQL Views
+## Phase 3: Application Design - Use-cases and Database Access Scenarios
 
 Во оваа задача е потребно да ги дефинирате главните случаи на употреба на апликацијата и како низ нивните сценарија ќе се користи базата на податоци.
 

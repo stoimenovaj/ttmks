@@ -19,11 +19,11 @@ You need to have `Apache Maven` installed and setup so that it is in your system
 
 #### Step 4. Open command line in this directory and run the following command in order to compile and install for later usage the custom reverse engineering strategy that is available in `src/` directory. This step is not needed if this strategy is disabled in `hibernate.reveng.xml`
 
-#### `mvn install`
+`mvn install`
 
 #### Step 5. Run this only once to generate the Java source files for the first time.
 
-#### `mvn antrun:run@hbm2java`
+`mvn antrun:run@hbm2java`
 
 #### Step 6. If not satisfied with the generated Java source files, change the XML files, see the tutorial and see hibernate docs for custom configuration
 - If you need custom naming patterns for the java classes, java properties or methods, you will need to modify the customized Reverse Strategy. Please see the tutorial and hibernate docs for this.

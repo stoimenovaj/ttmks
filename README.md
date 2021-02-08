@@ -17,5 +17,5 @@ Some of the concepts covered in 'Databases' that are expressed in this project:
 #### Contributors
 - Dejan Slamkov ([LinkedIn](https://www.linkedin.com/in/dejan-slamkov/), [GitHub](https://github.com/SlamkovDejan))
 - Venko Stojanov ([LinkedIn](https://www.linkedin.com/in/venko-stojanov-3970751b4), [GitHub](https://github.com/StojanovVenko))
-- Jasmina Stoimenova ([LinkedIn](https://www.linkedin.com/in/jasmina-stoimenova-93a263182))
+- Jasmina Stoimenova ([LinkedIn](https://www.linkedin.com/in/jasmina-stoimenova-93a263182),[GitHub](https://github.com/stoimenovaj))
 

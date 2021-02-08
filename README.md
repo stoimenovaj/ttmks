@@ -1,17 +1,21 @@
-## Web RESTfull service
-### Spring Boot application
+## Table Tennis Macedonia (ttmk)
+### Databases project 2019/20
 
-RESTfull web service app built with Spring Boot. It "wraps" the database and exposes its data to clients through HTTP.
+`Table Tennis Macedonia (ttmk)` is a web app that stores & displays results, statistics, ranking lists for tournaments, matches, players, etc.
+for the table tennis community in Macedonia. This project was developed as part of an assignment for the course
+'Databases' at FCSE - Skopje (2019/20) which covers topics related to `Relational Databases`, under the mentorship of prof. Vangel Ajanovski ([website](https://ajanovski.info/)).
 
----
-#### Characteristics
-- Layered architecture
-    - Repository, Service, Web
-- String Data `JPA` as ORM
-    - The complex queries defined in previous phases are constructed through the `JPA` repositories
-- Reverse engineered models
-    - The models are reverse engineered from the database tables with the help of `Hibernate` tools, `mvn` and `ant`
-    - `reverse/`
-- Spring security
-    - Authentication and authorization with JWT tokens
-- Java 8
+The project consists of three parts: `database` (PostgreSQL), `RESTfull web service` (Spring) and `web client` (React).
+Each part is contained in a separate folder: `database/`, `web/`, `front-end/`, respectively.
+
+Some of the concepts covered in 'Databases' that are expressed in this project:
+- Relational database conceptual design (ER modeling)
+- Relational database logical design and creation
+- SQL queries
+- Normalization
+
+#### Contributors
+- Dejan Slamkov ([LinkedIn](https://www.linkedin.com/in/dejan-slamkov/), [GitHub](https://github.com/SlamkovDejan))
+- Venko Stojanov ([LinkedIn](https://www.linkedin.com/in/venko-stojanov-3970751b4), [GitHub](https://github.com/StojanovVenko))
+- Jasmina Stoimenova ([LinkedIn](https://www.linkedin.com/in/jasmina-stoimenova-93a263182))
+
